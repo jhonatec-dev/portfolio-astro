@@ -1,16 +1,25 @@
 ---
-
+import Button from "@compnents/Button.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<script>
+  const btn = document.querySelector("[itemid='btn-teste']");
+  console.log("BTN -->", btn);
+  btn?.addEventListener("click", () => {
+    alert("Hello Astro!");
+  });
+</script>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
+    <!-- <button id="btn-teste">Agora</button> -->
+    <Button id="btn-teste" itemid='btn-teste' color='primary'>Click me</Button>
+  </body>
 </html>
