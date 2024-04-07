@@ -10,6 +10,7 @@ const { itemid, color, size, disabled, id } = Astro.props;
 
 const classes: string[] = [];
 const baseClass = " rounded-md shadow focus:outline-none ";
+classes.push(baseClass);
 
 switch (color) {
   case "primary":
