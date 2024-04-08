@@ -1,5 +1,6 @@
 ---
 import IconButton from "@components/Base/IconButton.astro";
+import Logo from "@components/Header/Logo.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
@@ -7,26 +8,33 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   title='Sobre mim'
   description='Saiba um pouco mais sobre quem sou...'
 >
-  <div class="icon-fechar-video">
-    <IconButton icon='close' href='/' />
+  <div class='icon-fechar-video absolute z-10 flex justify-between w-full p-4 drop-shadow-md'>
+    <Logo />
+    <IconButton icon='close' href='/' size={2.5} />
   </div>
-  <div class='container-video'>
-    <video src='/assets/videos/profile.mp4' autoplay></video>
+  <div class='container-video' id='vid'>
+    <video src='/assets/videos/profile.mp4' autoplay controls class="shadow-xl"></video>
   </div>
 </BaseLayout>
 <style>
+  video {
+    border-radius: 8px;
+  }
   .container-video {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    position: relative;
+    height: 100dvh;
+    width: 100dvw;
   }
 
   .icon-fechar-video {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
+  }
+  @media screen and (max-width: 600px) {
+    video {
+      border-radius: 0;
+      height: 100dvh;
+      object-fit: cover;
+    }
   }
 </style>
