@@ -10,7 +10,6 @@ interface Props {
 
 const { size, src, variant, itemid, href, target } = Astro.props;
 const classes: string[] = [];
-classes.push("relative p-1");
 let variantClass = "";
 switch (variant) {
   case "rounded":
@@ -32,10 +31,5 @@ if (size) {
 ---
 
 <a href={href} target={target} itemid={itemid}>
-  <div
-    class={`${variantClass} shadow-lg bg-gradient-to-r from-cyan-500 to-blue-500 transition-all`}
-  >
-    <img src={src} alt={src} class:list={classes} width={width} />
-  </div>
+  <img src={src} alt={src} class:list={classes} width={width} />
 </a>
-

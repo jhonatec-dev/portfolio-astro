@@ -1,44 +1,42 @@
 ---
-import Avatar from "@components/Base/Avatar.astro";
 import Button from "@components/Base/Button.astro";
 import Fab from "@components/Base/Fab.astro";
 import Tooltip from "@components/Base/Tooltip.astro";
 import Typo from "@components/Base/Typo.astro";
 import dayjs from "dayjs";
-import Logo from "./Logo.astro";
+import AvatarVideo from "./AvatarVideo.astro";
 import { links } from "./links";
+import Logo from "./Logo.astro";
+import ToggleTheme from "./ToggleTheme.astro";
 
 const nasc = dayjs("1993-10-14");
 const hoje = dayjs();
 const idade = hoje.diff(nasc, "year");
 ---
 
-<div class='flex'>
-  <Avatar
-    src='https://avatars.githubusercontent.com/u/5642440?v=4'
-    size={15}
-    href='/profile/video'
-  />
+<div class='flex items-center gap-2'>
+  <AvatarVideo />
+  <ToggleTheme />
   <div class='flex-col p-1 gap-2'>
     <Logo />
-    <div class='pl-4'>
+    <div class='pl-4 py-2'>
       <Typo bold>Jhonatan da Silva Reis, {idade}</Typo>
       <Typo variant='body2'>Software Engineer, Dev Full Stack</Typo>
     </div>
-    <div class='flex'>
+    <div class='hidden sm:block py-3'>
       <Button variant='text' href='/'><strong>X</strong> projetos</Button>
       <Button variant='text' href='/techs'><strong>X</strong> techs</Button>
       <Button variant='text' href='/tutoriais'
         ><strong>X</strong> tutoriais</Button
       >
     </div>
-    <div class='flex'>
+    <div class='flex gap-1 pl-3'>
       {
         links.map((link) => (
           <Tooltip text={link.name}>
             <Fab
               icon={link.name.toLowerCase()}
-              size={3}
+              size={2.5}
               href={link.url}
               target='_blank'
             />
@@ -47,4 +45,9 @@ const idade = hoje.diff(nasc, "year");
       }
     </div>
   </div>
+</div>
+<div class='flex justify-center gap-2 sm:hidden'>
+  <Button variant='text' href='/'><strong>X</strong> projetos</Button>
+  <Button variant='text' href='/techs'><strong>X</strong> techs</Button>
+  <Button variant='text' href='/tutoriais'><strong>X</strong> tutoriais</Button>
 </div>

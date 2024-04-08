@@ -5,7 +5,7 @@ export const links = [
   },
   {
     name: 'HackerRank',
-    url: 'https://www.hackerrank.com/jhonatec'
+    url: 'https://www.hackerrank.com/profile/jhonatec'
   },
   {
     name: 'LinkedIn',
@@ -15,12 +15,4 @@ export const links = [
     name: 'YouTube',
     url: 'https://www.youtube.com/c/Jhonatec'
   },
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/_jhonatec/'
-  },
-  {
-    name: 'TikTok',
-    url: 'https://www.tiktok.com/@jhonatec'
-  }
 ]

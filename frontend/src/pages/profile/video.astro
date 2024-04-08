@@ -1,8 +1,32 @@
 ---
-import Typo from "@components/Base/Typo.astro";
+import IconButton from "@components/Base/IconButton.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-
 ---
-<BaseLayout title="Sobre mim" description="Saiba um pouco mais sobre quem sou..."> 
-<Typo>Jhonatan video</Typo>
+
+<BaseLayout
+  title='Sobre mim'
+  description='Saiba um pouco mais sobre quem sou...'
+>
+  <div class="icon-fechar-video">
+    <IconButton icon='close' href='/' />
+  </div>
+  <div class='container-video'>
+    <video src='/assets/videos/profile.mp4' autoplay></video>
+  </div>
 </BaseLayout>
+<style>
+  .container-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+  }
+
+  .icon-fechar-video {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+</style>

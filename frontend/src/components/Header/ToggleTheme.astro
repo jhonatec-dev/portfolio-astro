@@ -1,0 +1,52 @@
+---
+import Tooltip from "@components/Base/Tooltip.astro";
+---
+
+<script>
+  const toggleBtn = document.getElementById("toggle-theme");
+  const themeMode = localStorage.getItem("theme-mode") ?? "light";
+  const src =
+    themeMode === "light"
+      ? "/assets/icons/light-mode.svg"
+      : "/assets/icons/dark-mode.svg";
+  const img = toggleBtn?.querySelector("img");
+  if (img) {
+    img.src = src;
+  }
+  const toggleTheme = () => {
+    const themeMode = localStorage.getItem("theme-mode") ?? "light";
+    const newThemeMode = themeMode === "light" ? "dark" : "light";
+    document.getElementsByTagName("html")[0].className = newThemeMode;
+    localStorage.setItem("theme-mode", newThemeMode);
+    const src =
+      newThemeMode === "light"
+        ? "/assets/icons/light-mode.svg"
+        : "/assets/icons/dark-mode.svg";
+    const img = toggleBtn?.querySelector("img");
+    if (img) {
+      img.src = src;
+    }
+  };
+  toggleBtn?.addEventListener("click", toggleTheme);
+</script>
+<button
+  id='toggle-theme'
+  class='bg-gray-100 hover:bg-gray-300 dark:bg-stone-700 dark:hover:bg-stone-500'
+>
+  <Tooltip text='Mudar tema' placement='bottom'>
+    <img class='dark:invert saturate-0' />
+  </Tooltip>
+</button>
+<style>
+  #toggle-theme {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 0 0 0 100%;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 8px 16px;
+  }
+</style>

@@ -9,8 +9,9 @@ interface Props {
 
 const { href, target, itemid, icon, size } = Astro.props;
 const classes: string[] = [];
-classes.push("rounded-full p-2 bg-gray-100 hover:bg-gray-300");
-classes.push("cursor-pointer");
+classes.push("bg-gray-100 hover:bg-gray-300");
+classes.push("dark:bg-gray-800 dark:hover:bg-gray-500");
+classes.push("p-2 rounded-full cursor-pointer");
 
 let width = 64;
 if (size) {
@@ -20,6 +21,6 @@ if (size) {
 
 <a href={href} target={target} itemid={itemid}>
   <div class:list={classes}>
-    <img src={`/assets/icons/${icon}.svg`} alt='👾' width={width} />
+    <img class="dark:invert" src={`/assets/icons/${icon}.svg`} alt='👾' width={width} />
   </div>
 </a>
