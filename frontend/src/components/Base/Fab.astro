@@ -3,15 +3,23 @@ interface Props {
   href?: string;
   target?: string;
   itemid?: string;
+  icon: string;
+  size?: number;
 }
 
-const { href, target, itemid } = Astro.props;
+const { href, target, itemid, icon, size } = Astro.props;
 const classes: string[] = [];
-classes.push('rounded-full p-2 bg-gray-100 hover:bg-gray-200');
+classes.push("rounded-full p-2 bg-gray-100 hover:bg-gray-300");
+classes.push("cursor-pointer");
+
+let width = 64;
+if (size) {
+  width = size * 10;
+}
 ---
 
 <a href={href} target={target} itemid={itemid}>
   <div class:list={classes}>
-    <slot />
+    <img src={`/assets/icons/${icon}.svg`} alt='👾' width={width} />
   </div>
 </a>

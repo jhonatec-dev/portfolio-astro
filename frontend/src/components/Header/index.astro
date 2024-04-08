@@ -1,9 +1,12 @@
 ---
 import Avatar from "@components/Base/Avatar.astro";
 import Button from "@components/Base/Button.astro";
+import Fab from "@components/Base/Fab.astro";
+import Tooltip from "@components/Base/Tooltip.astro";
 import Typo from "@components/Base/Typo.astro";
 import dayjs from "dayjs";
 import Logo from "./Logo.astro";
+import { links } from "./links";
 
 const nasc = dayjs("1993-10-14");
 const hoje = dayjs();
@@ -30,8 +33,18 @@ const idade = hoje.diff(nasc, "year");
       >
     </div>
     <div class='flex'>
-      <Button variant='text' href='/sobre'>sobre</Button>
-      <Button variant='text' href='/contato'>contato</Button>
+      {
+        links.map((link) => (
+          <Tooltip text={link.name}>
+            <Fab
+              icon={link.name.toLowerCase()}
+              size={3}
+              href={link.url}
+              target='_blank'
+            />
+          </Tooltip>
+        ))
+      }
     </div>
   </div>
 </div>
