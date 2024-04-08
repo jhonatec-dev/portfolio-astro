@@ -10,35 +10,39 @@ interface Props {
     | "body1"
     | "body2"
     | "caption";
+  bold?: boolean;
 }
-const { variant } = Astro.props;
+const { variant, bold } = Astro.props;
 let classes = ["dark:text-white", "text-black"];
+if (bold) {
+  classes.push("font-bold");
+}
 let Title = "p";
 if (variant) {
   switch (variant) {
     case "h1":
-      classes.push("text-5xl");
+      classes.push("text-5xl mb-6");
       Title = "h1";
       break;
     case "h2":
       Title = "h2";
-      classes.push("text-4xl");
+      classes.push("text-4xl mb-4");
       break;
     case "h3":
       Title = "h3";
-      classes.push("text-3xl");
+      classes.push("text-3xl mb-4");
       break;
     case "h4":
       Title = "h4";
-      classes.push("text-2xl");
+      classes.push("text-2xl mb-4");
       break;
     case "h5":
       Title = "h5";
-      classes.push("text-xl");
+      classes.push("text-xl mb-4");
       break;
     case "h6":
       Title = "h6";
-      classes.push("text-lg");
+      classes.push("text-lg mb-4");
       break;
     case "body1":
       Title = "p";
@@ -51,6 +55,10 @@ if (variant) {
     case "caption":
       Title = "p";
       classes.push("text-xs");
+      break;
+    default:
+      Title = "p";
+      classes.push("text-base");
       break;
   }
 }

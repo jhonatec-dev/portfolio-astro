@@ -1,5 +1,5 @@
 ---
-import Typo from "@components/Typo.astro";
+import Typo from "@components/Base/Typo.astro";
 import "@styles/global.css";
 
 interface Props {
@@ -22,7 +22,7 @@ const { title, description, faviconURL="/favicon.svg" } = Astro.props;
 <script>
   // TODO: Add a toggle to switch between light and dark mode
   // TODO: Record user preference in local storage
-  document.getElementsByTagName("html")[0].classList.add("light");
+  document.getElementsByTagName("html")[0].classList.add(""); //dark
 </script>
 <html lang='pt-br'>
   <head>

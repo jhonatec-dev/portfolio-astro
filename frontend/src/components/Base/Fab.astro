@@ -1,0 +1,17 @@
+---
+interface Props {
+  href?: string;
+  target?: string;
+  itemid?: string;
+}
+
+const { href, target, itemid } = Astro.props;
+const classes: string[] = [];
+classes.push('rounded-full p-2 bg-gray-100 hover:bg-gray-200');
+---
+
+<a href={href} target={target} itemid={itemid}>
+  <div class:list={classes}>
+    <slot />
+  </div>
+</a>

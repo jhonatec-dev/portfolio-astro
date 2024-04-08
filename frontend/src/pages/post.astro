@@ -10,7 +10,7 @@ import Main from "@layouts/Main.astro";
   const btn = document.querySelector("[itemid='btn-teste']");
   console.log("BTN -->", btn);
   btn?.addEventListener("click", () => {
-    alert("Hello Astro!");
+    alert("Hello Astro Post!");
   });
 </script>
 <BaseLayout
@@ -19,9 +19,9 @@ import Main from "@layouts/Main.astro";
 >
   <Main>
     <Header />
-    <Typo variant='h1'>Astro</Typo>
+    <Typo variant='h1'>Post tal</Typo>
     <!-- <button id="btn-teste">Agora</button> -->
     <Button itemid='btn-teste'>Click me</Button>
-    <Button href="/post">Ir para o post de teste</Button>
+    <img src="/assets/images/teste.png" alt="Astro" />
   </Main>
 </BaseLayout>
