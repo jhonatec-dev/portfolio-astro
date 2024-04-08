@@ -1,0 +1,61 @@
+---
+interface Props {
+  variant?:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "body1"
+    | "body2"
+    | "caption";
+}
+const { variant } = Astro.props;
+let classes = ["dark:text-white", "text-black"];
+let Title = "p";
+if (variant) {
+  switch (variant) {
+    case "h1":
+      classes.push("text-5xl");
+      Title = "h1";
+      break;
+    case "h2":
+      Title = "h2";
+      classes.push("text-4xl");
+      break;
+    case "h3":
+      Title = "h3";
+      classes.push("text-3xl");
+      break;
+    case "h4":
+      Title = "h4";
+      classes.push("text-2xl");
+      break;
+    case "h5":
+      Title = "h5";
+      classes.push("text-xl");
+      break;
+    case "h6":
+      Title = "h6";
+      classes.push("text-lg");
+      break;
+    case "body1":
+      Title = "p";
+      classes.push("text-base");
+      break;
+    case "body2":
+      Title = "p";
+      classes.push("text-sm");
+      break;
+    case "caption":
+      Title = "p";
+      classes.push("text-xs");
+      break;
+  }
+}
+---
+
+<Title class:list={classes}>
+  <slot />
+</Title>

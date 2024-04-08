@@ -1,0 +1,45 @@
+---
+import Typo from "@components/Typo.astro";
+import "@styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  faviconURL?: string;
+  ogImageURL?: string;
+  ogDescription?: string;
+  ogTitle?: string;
+  ogURL?: string;
+  ogType?: string;
+  ogSiteName?: string;
+  ogLocale?: string;
+}
+
+// if (!Astro.props.faviconURL) Astro.props.faviconURL = "/favicon.svg";
+const { title, description, faviconURL="/favicon.svg" } = Astro.props;
+---
+
+<script>
+  // TODO: Add a toggle to switch between light and dark mode
+  // TODO: Record user preference in local storage
+  document.getElementsByTagName("html")[0].classList.add("light");
+</script>
+<html lang='pt-br'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='icon' type='image/svg+xml' href={faviconURL} />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <meta name='description' content={description} />
+  </head>
+  <body class='dark:bg-stone-900'>
+    <slot>
+      <!-- Fall Back -->
+      <main>
+        <Typo variant='h1'>{title}</Typo>
+        <Typo variant='body1'>{description}</Typo>
+      </main>
+    </slot>
+  </body>
+</html>
