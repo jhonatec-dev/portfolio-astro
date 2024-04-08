@@ -1,0 +1,28 @@
+---
+import Button from "@components/Base/Button.astro";
+import Typo from "@components/Base/Typo.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header/index.astro";
+import Main from "@layouts/Main.astro";
+---
+
+<script>
+  const btn = document.querySelector("[itemid='btn-teste']");
+  console.log("BTN -->", btn);
+  btn?.addEventListener("click", () => {
+    alert("Hello Astro Post!");
+  });
+</script>
+<BaseLayout
+  title='Jhonatec | Portfólio'
+  description='Bem-vindo ao meu portfólio!'
+>
+  <Main>
+    <Header />
+    <Typo variant='h1'>Post tal</Typo>
+    <!-- <button id="btn-teste">Agora</button> -->
+    <Button href='/'>Voltar</Button>
+    <Typo>Imagine um conteúdo bem legal aqui!</Typo>
+    <img src='/assets/images/teste.png' alt='Astro' />
+  </Main>
+</BaseLayout>

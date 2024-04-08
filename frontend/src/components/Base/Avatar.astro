@@ -1,0 +1,35 @@
+---
+interface Props {
+  size: number;
+  src: string;
+  variant?: "circle" | "rounded" | "square";
+  itemid?: string;
+  href?: string;
+  target?: string;
+}
+
+const { size, src, variant, itemid, href, target } = Astro.props;
+const classes: string[] = [];
+let variantClass = "";
+switch (variant) {
+  case "rounded":
+    variantClass = "rounded-lg";
+    break;
+  case "square":
+    variantClass = "rounded-sm";
+    break;
+  default:
+    variantClass = "rounded-full";
+    break;
+}
+classes.push(variantClass);
+
+let width = 64;
+if (size) {
+  width = size * 10;
+}
+---
+
+<a href={href} target={target} itemid={itemid}>
+  <img src={src} alt={src} class:list={classes} width={width} />
+</a>

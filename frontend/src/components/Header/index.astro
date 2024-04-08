@@ -1,0 +1,53 @@
+---
+import Button from "@components/Base/Button.astro";
+import Fab from "@components/Base/Fab.astro";
+import Tooltip from "@components/Base/Tooltip.astro";
+import Typo from "@components/Base/Typo.astro";
+import dayjs from "dayjs";
+import AvatarVideo from "./AvatarVideo.astro";
+import { links } from "./links";
+import Logo from "./Logo.astro";
+import ToggleTheme from "./ToggleTheme.astro";
+
+const nasc = dayjs("1993-10-14");
+const hoje = dayjs();
+const idade = hoje.diff(nasc, "year");
+---
+
+<div class='flex items-center gap-2'>
+  <AvatarVideo />
+  <ToggleTheme />
+  <div class='flex-col p-1 gap-3'>
+    <Logo />
+    <div class='pl-4 py-1'>
+      <Typo bold>Jhonatan da Silva Reis, {idade}</Typo>
+      <Typo variant='body2'>Software Engineer, Dev Full Stack</Typo>
+    </div>
+    <div class='hidden sm:block'>
+      <Button variant='text' href='/'><strong>X</strong> projetos</Button>
+      <Button variant='text' href='/techs'><strong>X</strong> techs</Button>
+      <Button variant='text' href='/tutoriais'
+        ><strong>X</strong> tutoriais</Button
+      >
+    </div>
+    <div class='flex gap-1 pl-3'>
+      {
+        links.map((link) => (
+          <Tooltip text={link.name}>
+            <Fab
+              icon={link.name.toLowerCase()}
+              size={2.5}
+              href={link.url}
+              target='_blank'
+            />
+          </Tooltip>
+        ))
+      }
+    </div>
+  </div>
+</div>
+<div class='flex justify-center gap-1 sm:hidden'>
+  <Button variant='text' href='/'><strong>X</strong> projetos</Button>
+  <Button variant='text' href='/techs'><strong>X</strong> techs</Button>
+  <Button variant='text' href='/tutoriais'><strong>X</strong> tutoriais</Button>
+</div>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  href?: string;
+  target?: string;
+  itemid?: string;
+  icon: string;
+  size?: number;
+}
+
+const { href, target, itemid, icon, size } = Astro.props;
+const classes: string[] = [];
+classes.push("bg-gray-100 hover:bg-gray-300");
+classes.push("dark:bg-gray-800 dark:hover:bg-gray-500");
+classes.push("p-2 rounded-full cursor-pointer");
+
+let width = 64;
+if (size) {
+  width = size * 10;
+}
+---
+
+<a href={href} target={target} itemid={itemid}>
+  <div class:list={classes}>
+    <img class="dark:invert" src={`/assets/icons/${icon}.svg`} alt='👾' width={width} />
+  </div>
+</a>

@@ -1,16 +1,28 @@
 ---
-
+import Button from "@components/Base/Button.astro";
+import Typo from "@components/Base/Typo.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header/index.astro";
+import Main from "@layouts/Main.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<script>
+  const btn = document.querySelector("[itemid='btn-teste']");
+  console.log("BTN -->", btn);
+  btn?.addEventListener("click", () => {
+    alert("Hello Astro!");
+  });
+</script>
+<BaseLayout
+  title='Jhonatec | Portfólio'
+  description='Bem-vindo ao meu portfólio!'
+>
+  <Main>
+    <Header />
+    <Typo variant='h1'>Olá ser humano! 👾</Typo>
+    <Typo> Aqui vai a lista de certificações em formato de Stories </Typo>
+    <Typo> Aqui vai uma lista de abas com posts/tutoriais/contato </Typo>
+    <Typo>Aqui vai um ARCHIVE, cada ITEM terá sua página própria</Typo>
+    <Button href="/post">Exemplo de página reaproveitando o HEADER</Button>
+  </Main>
+</BaseLayout>

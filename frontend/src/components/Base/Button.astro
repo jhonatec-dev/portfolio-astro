@@ -1,0 +1,78 @@
+---
+interface Props {
+  id?: string;
+  itemid?: string;
+  color?: "primary" | "secondary";
+  disabled?: boolean;
+  fullwidth?: boolean;
+  href?: string;
+  size?: "small" | "medium" | "large";
+  target?: string;
+  variant?: "contained" | "outlined" | "text";
+}
+const { itemid, color, size, disabled, id, variant, href, target } =
+  Astro.props;
+
+const classes: string[] = [];
+const baseClass = " rounded-md shadow dark:text-white cursor-pointer inline-block text-center";
+classes.push(baseClass);
+
+switch (color) {
+  case "primary":
+    classes.push("bg-blue-500 text-white hover:bg-blue-600");
+    break;
+  case "secondary":
+    classes.push("bg-green-500 text-white hover:bg-green-600");
+    break;
+  default:
+    classes.push(
+      "bg-gray-200 text-black hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+    );
+    break;
+}
+
+switch (size) {
+  case "small":
+    classes.push("px-2 py-1 text-sm");
+    break;
+  case "medium":
+    classes.push("px-4 py-2 text-base");
+    break;
+  case "large":
+    classes.push("px-6 py-3 text-lg");
+    break;
+  default:
+    classes.push("px-4 py-2 text-base");
+    break;
+}
+
+switch (variant) {
+  case "contained":
+    classes.push("bg-blue-500 text-white hover:bg-blue-600");
+    break;
+  case "outlined":
+    classes.push(
+      "border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+    );
+    break;
+  case "text":
+    classes.push("bg-transparent hover:bg-transparent shadow-none");
+    classes.push("dark:bg-transparent dark:hover:bg-transparent shadow-none");
+    break;
+  default:
+    // classes.push("bg-blue-500 text-white hover:bg-blue-600");
+    break;
+}
+
+if (disabled) {
+  classes.push("opacity-50 cursor-not-allowed pointer-events-none");
+}
+
+if (Astro.props.fullwidth) {
+  classes.push("w-full");
+}
+---
+
+<a itemid={itemid} id={id} class:list={classes} href={href} target={target}>
+  <slot />
+</a>

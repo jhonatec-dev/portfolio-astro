@@ -1,0 +1,35 @@
+---
+import Avatar from "@components/Base/Avatar.astro";
+import Tooltip from "@components/Base/Tooltip.astro";
+---
+
+<Tooltip text="Assista meu vídeo">
+  <div class='relative w-24 container-avatar-video'>
+    <div
+      class={`bg-gradient-to-r from-cyan-500 to-blue-500 transition-all rounded-full duration-500 surrond-avatar`}
+    >
+      .
+    </div>
+    <Avatar
+      src='https://avatars.githubusercontent.com/u/5642440?v=4'
+      size={15}
+      href='/profile/video'
+    />
+  </div>
+</Tooltip>
+<style>
+  .container-avatar-video:hover .surrond-avatar {
+    transform: rotate(360deg);
+    scale: 1.1;
+  }
+  .surrond-avatar {
+    color: transparent;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.75;
+    scale: 1.05;
+  }
+</style>
