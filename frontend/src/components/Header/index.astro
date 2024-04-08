@@ -14,7 +14,7 @@ const hoje = dayjs();
 const idade = hoje.diff(nasc, "year");
 ---
 
-<div class='flex items-center gap-2'>
+<header class='flex items-center gap-2'>
   <AvatarVideo />
   <ToggleTheme />
   <div class='flex-col p-1 gap-1'>
@@ -45,7 +45,7 @@ const idade = hoje.diff(nasc, "year");
       }
     </div>
   </div>
-</div>
+</header>
 <div class='flex justify-center gap-1 sm:hidden'>
   <Button variant='text' href='/'><strong>X</strong> projetos</Button>
   <Button variant='text' href='/techs'><strong>X</strong> techs</Button>
