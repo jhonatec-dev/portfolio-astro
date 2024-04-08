@@ -1,0 +1,20 @@
+---
+import Typo from "@components/Base/Typo.astro";
+import Header from "@components/Header/index.astro";
+import BaseLayout from "./BaseLayout.astro";
+import Main from "./Main.astro";
+
+const { title, description, image, techs } = Astro.props.frontmatter;
+---
+
+<BaseLayout title={title} description={description}>
+  <Main>
+    <Header />
+    <Typo variant='h2'>{title}</Typo>
+    <img src={image.url} alt={image.alt} />
+    <div class='dark:text-white'>
+      <slot />
+    </div>
+  </Main>
+</BaseLayout>
+<style></style>
