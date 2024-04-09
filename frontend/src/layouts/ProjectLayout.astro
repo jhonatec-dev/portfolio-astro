@@ -52,10 +52,10 @@ const { title, description, image, techs } = Astro.props.frontmatter;
     </div>
     <div class='mt-4'>
       <Typo variant='h5'>Techs usadas neste projeto</Typo>
-      <div class='' id='techs-container'>
+      <div class='flex flex-wrap gap-2 justify-center'>
         {
           techs.map((tech) => (
-            <Button color='info' href={`/techs/${tech}`}>
+            <Button color='info' href={`/techs/${tech}`} size="small">
               {tech}
             </Button>
           ))
@@ -67,13 +67,6 @@ const { title, description, image, techs } = Astro.props.frontmatter;
 <style is:inline>
   .post-container a {
     display: block;
-  }
-  #techs-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    justify-content: center;
   }
   blockquote {
     border-left: 10px solid #ccc;

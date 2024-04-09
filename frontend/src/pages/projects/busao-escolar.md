@@ -5,7 +5,7 @@ description: Website oficial da empresa de Suporte Técnico
 image: { url: /assets/images/projects/busao-escolar.png, alt: Busão Escolar }
 techs: [nextjs, nodejs, mongodb, mongoose, dayjs, react-hook-forms, jwt, nodemailer, atlas, vercel, railway, materialui, fullstack]
 
-date: 2024-12-25
+date: 2023-12-25
 
 ---
 

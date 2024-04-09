@@ -4,17 +4,26 @@ import Header from "@components/Header/index.astro";
 import NavBar from "@components/NavBar/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Main from "@layouts/Main.astro";
-import dayjs from "dayjs";
 
-const projectPosts = await Astro.glob("../pages/projects/*.md");
+const projectPosts = await Astro.glob("../../pages/projects/*.md");
+let techs: { [key: string]: number } = {};
+let techsSorted = [];
 if (projectPosts) {
-  projectPosts.sort((a, b) => {
-    return dayjs(a.frontmatter.date).isBefore(dayjs(b.frontmatter.date))
-      ? 1
-      : -1;
+  projectPosts.forEach(({ frontmatter }) => {
+    frontmatter.techs.forEach((tech: string) => {
+      if (techs[tech]) {
+        techs[tech] += 1;
+      } else {
+        techs[tech] = 1;
+      }
+    });
   });
+  console.log('techs', techs);
+  techsSorted = Object.entries(techs).sort((a, b) => b[1] - a[1]);
+  console.log('techsSorted', techsSorted);
 }
 ---
+
 <BaseLayout
   title='Jhonatec | Portfólio'
   description='Bem-vindo ao meu portfólio!'
@@ -23,7 +32,7 @@ if (projectPosts) {
     <Header />
     <NavBar client:only='react' />
 
-    <div class='grid-cols-3 grid gap-1 sm:gap-4'>
+    <div class=' gap-1 sm:gap-4'>
       {
         projectPosts.map(({ frontmatter: { title, image }, url }) => (
           <Item text={title} url={url as string} img={image.url} />

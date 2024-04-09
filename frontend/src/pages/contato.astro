@@ -1,20 +1,20 @@
 ---
-import Item from "@components/Archive/Item.astro";
+import Typo from "@components/Base/Typo.astro";
 import Header from "@components/Header/index.astro";
 import NavBar from "@components/NavBar/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Main from "@layouts/Main.astro";
-import dayjs from "dayjs";
 
-const projectPosts = await Astro.glob("../pages/projects/*.md");
-if (projectPosts) {
-  projectPosts.sort((a, b) => {
-    return dayjs(a.frontmatter.date).isBefore(dayjs(b.frontmatter.date))
-      ? 1
-      : -1;
-  });
-}
+// const projectPosts = await Astro.glob("../pages/projects/*.md");
+// if (projectPosts) {
+//   projectPosts.sort((a, b) => {
+//     return dayjs(a.frontmatter.date).isBefore(dayjs(b.frontmatter.date))
+//       ? -1
+//       : 1;
+//   });
+// }
 ---
+
 <BaseLayout
   title='Jhonatec | Portfólio'
   description='Bem-vindo ao meu portfólio!'
@@ -22,13 +22,13 @@ if (projectPosts) {
   <Main>
     <Header />
     <NavBar client:only='react' />
-
-    <div class='grid-cols-3 grid gap-1 sm:gap-4'>
+    <Typo variant='h2' align='center'>Em breve...</Typo>
+    <!-- <div class='grid-cols-3 grid gap-1 sm:gap-4'>
       {
         projectPosts.map(({ frontmatter: { title, image }, url }) => (
           <Item text={title} url={url as string} img={image.url} />
         ))
       }
-    </div>
+    </div> -->
   </Main>
 </BaseLayout>

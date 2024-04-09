@@ -1,0 +1,59 @@
+---
+import Item from "@components/Archive/Item.astro";
+import Typo from "@components/Base/Typo.astro";
+import Header from "@components/Header/index.astro";
+import NavBar from "@components/NavBar/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@layouts/Main.astro";
+
+interface Projects {
+  frontmatter: {
+    title: string;
+    description: string;
+    techs: string[];
+    image: {
+      url: string;
+      alt: string;
+    };
+  };
+  url: string;
+}
+export async function getStaticPaths() {
+  const projectPosts = (await Astro.glob(
+    "../../pages/projects/*.md"
+  )) as Projects[];
+  const uniqueTechs = [
+    ...new Set(projectPosts.map((post) => post.frontmatter.techs).flat()),
+  ];
+  return uniqueTechs.map((tech) => {
+    const filteredPosts = projectPosts.filter((post) =>
+      post.frontmatter.techs.includes(tech)
+    );
+    return {
+      params: { tech },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tech } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout
+  title='Jhonatec | Portfólio'
+  description='Bem-vindo ao meu portfólio!'
+>
+  <Main>
+    <Header />
+    <NavBar client:only='react' />
+    <Typo variant='h4' align='center'>Projetos que usam a tech: {tech}</Typo>
+    <div class='grid-cols-3 grid gap-1 sm:gap-4'>
+      {
+        posts.map(({ frontmatter: { title, image }, url }) => (
+          <Item text={title} url={url as string} img={image.url} />
+        ))
+      }
+    </div>
+  </Main>
+</BaseLayout>
