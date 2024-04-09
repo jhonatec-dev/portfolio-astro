@@ -2,8 +2,7 @@ import { paths } from "./paths";
 
 export default function NavBar() {
   const pathname = window.location.pathname;
-  console.log("pathname", pathname);
-  console.log(paths);
+  console.log("PATHNAME --->", pathname);
   const divClasses: string[] = [];
   divClasses.push(
     " group flex gap-2 flex-col sm:flex-row justify-center items-center "
@@ -42,7 +41,7 @@ export default function NavBar() {
   }
 
   return (
-    <div className='flex justify-between sm:justify-center border-t-2 gap-0 sm:gap-2 w-full absolute bottom-0 left-0 sm:relative sm:my-4'>
+    <div className='flex justify-between sm:justify-center border-t-2 gap-0 sm:gap-2 w-full fixed bg-white dark:bg-stone-900 bottom-0 left-0 sm:relative sm:my-4'>
       {paths.map((path, index) => (
         <a key={index} href={path.url} style={{ marginTop: -3 }}>
           <div className={getDivClasses(path.url)}>

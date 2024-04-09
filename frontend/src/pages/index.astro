@@ -1,12 +1,10 @@
 ---
-import Button from "@components/Base/Button.astro";
-import Typo from "@components/Base/Typo.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Header from "@components/Header/index.astro";
-import Main from "@layouts/Main.astro";
 import Item from "@components/Archive/Item.astro";
-import dayjs from "dayjs";
+import Header from "@components/Header/index.astro";
 import NavBar from "@components/NavBar/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@layouts/Main.astro";
+import dayjs from "dayjs";
 
 const projectPosts = await Astro.glob("../pages/projects/*.md");
 if (projectPosts) {
@@ -16,16 +14,7 @@ if (projectPosts) {
       : 1;
   });
 }
-console.log("projectPosts -->", projectPosts.length);
 ---
-
-<script>
-  const btn = document.querySelector("[itemid='btn-teste']");
-  console.log("BTN -->", btn);
-  btn?.addEventListener("click", () => {
-    alert("Hello Astro!");
-  });
-</script>
 <BaseLayout
   title='Jhonatec | Portfólio'
   description='Bem-vindo ao meu portfólio!'

@@ -21,18 +21,36 @@ interface Props {
 const { title, description, image, techs } = Astro.props.frontmatter;
 ---
 
+<script>
+  const classes: string[] = [];
+  const baseClass =
+    " rounded-md shadow dark:text-white cursor-pointer inline-block text-center my-2 px-4 py-2 transition duration-300 ease-in-out";
+  classes.push(baseClass);
+  classes.push("bg-sky-400 text-white hover:bg-sky-500");
+  classes.push("dark:bg-cyan-600 text-white dark:hover:bg-cyan-500");
+  classes.push("self-center");
+  const pTags = document.querySelectorAll(".post-container p:has(a)");
+  // console.log("pTags", pTags);
+  pTags.forEach(
+    (pTag) =>
+      (pTag.className = "flex justify-center items-center flex-wrap gap-2")
+  );
+  const aTags = document.querySelectorAll(".post-container a");
+  // console.log("aTags", aTags);
+  aTags.forEach((aTag) => (aTag.className = classes.join(" ")));
+</script>
 <BaseLayout title={title} description={description}>
   <Main>
     <Header />
-    <NavBar client:only="react" />
+    <NavBar client:only='react' />
     <Typo variant='h2'>{title}</Typo>
     <div class='bg-slate-200 dark:bg-stone-800 rounded-lg flex justify-center'>
-      <img src={image.url} alt={image.alt} />
+      <img src={image.url} alt={image.alt} class='rounded' />
     </div>
-    <div class='dark:text-white flex flex-col gap-2'>
+    <div class='dark:text-white flex flex-col gap-4 mt-4 post-container'>
       <slot />
     </div>
-    <div class='mt-10 pt-10'>
+    <div class='mt-4'>
       <Typo variant='h5'>Techs usadas neste projeto</Typo>
       <div class='' id='techs-container'>
         {
@@ -46,12 +64,20 @@ const { title, description, image, techs } = Astro.props.frontmatter;
     </div>
   </Main>
 </BaseLayout>
-<style>
+<style is:inline>
+  .post-container a {
+    display: block;
+  }
   #techs-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
     justify-content: center;
+  }
+  blockquote {
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
   }
 </style>

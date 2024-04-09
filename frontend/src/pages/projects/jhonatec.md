@@ -1,19 +1,39 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
-title: Portal Jhonatec.com
-description: Website oficial da empresa de Suporte Técnico
-image: { url: https://jhonatec.com/logo.png, alt: Jhonatec Logo }
-techs: [nextjs, nodejs, mongodb, mongoose, dayjs, react-hook-forms, jwt, atlas, vercel, railway, materialui, fullstack]
-date: 2024-04-01
+title: Jhonatec.com
+description: Website oficial da minha empresa de Suporte Técnico
+image:
+  { url: /assets/images/projects/jhonatec-new-version.png, alt: Jhonatec Logo }
+techs:
+  [
+    nextjs,
+    nodejs,
+    mongodb,
+    mongoose,
+    dayjs,
+    react-hook-forms,
+    jwt,
+    atlas,
+    vercel,
+    railway,
+    materialui,
+    mercadopago,
+    webhook,
+    fullstack,
+    nodemailer,
+  ]
+date: 2024-03-01
 ---
 
-## Jhonatec.com
+[Clique aqui para acessar](https://jhonatec.com/ "Jhonatec.com")
 
-Este projeto alguma coisa
+#### Este é um site onde meus clientes podem agendar seu atendimento de forma online e sem complicações!
 
-### lista 2
+#### Principais funcionalidades
 
-- Lista 1
-- Lista 2
+- Gestão de datas para agendamento de ordens de serviço.
+- Gestão de clientes, evolução de atendimento e pagamentos by MercadoPago Checkout Pro.
+- Disparo de e-mail para clientes informando vagas, alterações na Ordem de Serviço e mais.
+- Gestão de Ordens de serviço com histórico, equipamentos, status geral e mais.
 
-[Link aqui](https:/jhonatec.com/ "Jhonatec.com")
+> EM BREVE: raspagem de dados para geração de ofertas com análise de preços.
