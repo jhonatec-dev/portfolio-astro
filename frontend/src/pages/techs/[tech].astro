@@ -52,13 +52,15 @@ const { posts, count } = Astro.props;
 
 <BaseLayout
   title='Jhonatec | Portfólio'
-  description='Bem-vindo ao meu portfólio!'
+  description={`Projetos com tecnologia ${tech}`}
 >
   <Main>
     <Header />
     <NavBar client:only='react' />
     <!-- <Typo variant='h4' align='center'>Projetos por Tech</Typo> -->
-    <div class="flex justify-center my-4 rounded group bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600">
+    <div
+      class='flex justify-center my-4 rounded group bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600'
+    >
       <TechItem tech={tech} count={count} url='#' />
     </div>
     <div class='grid-cols-3 grid gap-1 sm:gap-4'>

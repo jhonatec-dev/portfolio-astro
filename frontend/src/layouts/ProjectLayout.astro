@@ -42,7 +42,7 @@ const { title, description, image, techs } = Astro.props.frontmatter;
     aTag.setAttribute("target", "_blank");
   });
 </script>
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImageURL={image.url}>
   <Main>
     <Header />
     <NavBar client:only='react' />

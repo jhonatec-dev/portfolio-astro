@@ -16,7 +16,7 @@ interface Props {
 }
 
 // if (!Astro.props.faviconURL) Astro.props.faviconURL = "/favicon.svg";
-const { title, description, faviconURL="/favicon.svg" } = Astro.props;
+const { title, description, faviconURL="/favicon.svg", ogImageURL="/assets/images/og.png" } = Astro.props;
 ---
 
 <script>
@@ -34,6 +34,9 @@ const { title, description, faviconURL="/favicon.svg" } = Astro.props;
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
     <meta name='description' content={description} />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:image' content={ogImageURL} />
   </head>
   <body class='dark:bg-stone-900'>
     <slot>
