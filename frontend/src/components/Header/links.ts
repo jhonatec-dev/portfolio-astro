@@ -16,18 +16,3 @@ export const links = [
     url: "https://www.youtube.com/c/Jhonatec",
   },
 ];
-
-class Reaction {
-  name: string;
-  constructor(algo: any) {
-    this.name = "Reaction";
-  }
-}
-
-function seePortfolio() {
-  const URL = "https://jhonatec.dev";
-  open(URL, "_blank");
-  return new Reaction("awesome!");
-}
-
-seePortfolio();
