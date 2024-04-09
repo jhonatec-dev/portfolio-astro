@@ -12,6 +12,14 @@ import ToggleTheme from "./ToggleTheme.astro";
 const nasc = dayjs("1993-10-14");
 const hoje = dayjs();
 const idade = hoje.diff(nasc, "year");
+let projects = 0;
+let techs = 0;
+const projectPosts = await Astro.glob("../../pages/projects/*.md");
+if (projectPosts) {
+  projects = projectPosts.length;
+  const techList = projectPosts.map(({ frontmatter }) => frontmatter.techs);
+  techs = [...new Set(techList.flat())].length;
+}
 ---
 
 <header class='flex items-center gap-2'>
@@ -24,8 +32,12 @@ const idade = hoje.diff(nasc, "year");
       <Typo variant='body2'>Software Engineer, Dev Full Stack</Typo>
     </div>
     <div class='hidden sm:block'>
-      <Button variant='text' href='/'><strong>X</strong> projetos</Button>
-      <Button variant='text' href='/techs'><strong>X</strong> techs</Button>
+      <Button variant='text' href='/'
+        ><strong>{projects}</strong> projetos</Button
+      >
+      <Button variant='text' href='/techs'
+        ><strong>{techs}</strong> techs</Button
+      >
       <Button variant='text' href='/tutoriais'
         ><strong>X</strong> tutoriais</Button
       >
@@ -47,7 +59,7 @@ const idade = hoje.diff(nasc, "year");
   </div>
 </header>
 <div class='flex justify-center gap-1 sm:hidden'>
-  <Button variant='text' href='/'><strong>X</strong> projetos</Button>
-  <Button variant='text' href='/techs'><strong>X</strong> techs</Button>
+  <Button variant='text' href='/'><strong>{projects}</strong> projetos</Button>
+  <Button variant='text' href='/techs'><strong>{techs}</strong> techs</Button>
   <Button variant='text' href='/tutoriais'><strong>X</strong> tutoriais</Button>
 </div>

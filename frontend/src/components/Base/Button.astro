@@ -2,7 +2,7 @@
 interface Props {
   id?: string;
   itemid?: string;
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "info";
   disabled?: boolean;
   fullwidth?: boolean;
   href?: string;
@@ -23,6 +23,10 @@ switch (color) {
     break;
   case "secondary":
     classes.push("bg-green-500 text-white hover:bg-green-600");
+    break;
+  case "info":
+    classes.push("bg-sky-400 text-white hover:bg-sky-500");
+    classes.push("dark:bg-cyan-600 text-white dark:hover:bg-cyan-500");
     break;
   default:
     classes.push(

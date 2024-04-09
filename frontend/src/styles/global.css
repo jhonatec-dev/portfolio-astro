@@ -1,9 +1,76 @@
-:root{
-  /* --themeMode: "light"; */
-}
-
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scrollbar-color: #626262b2 #ffffff00;
+  scroll-behavior: smooth;
+}
+
+/* Scroll Bar */
+/* ::-webkit-scrollbar {
+  background: #1e1e1e;
+  height: 8px;
+  transition: all 300ms;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #414141;
+  border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6f6f6f;
+}
+
+::-webkit-scrollbar-corner {
+  background: #e30000;
+} */
+/* End Scroll Bar */
+
+ul {
+  list-style: disc;
+}
+
+li {
+  margin-left: 1rem;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
 }

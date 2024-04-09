@@ -1,8 +1,21 @@
 ---
+import Button from "@components/Base/Button.astro";
 import Typo from "@components/Base/Typo.astro";
 import Header from "@components/Header/index.astro";
 import BaseLayout from "./BaseLayout.astro";
 import Main from "./Main.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    image: {
+      url: string;
+      alt: string;
+    };
+    techs: string[];
+  };
+}
 
 const { title, description, image, techs } = Astro.props.frontmatter;
 ---
@@ -11,10 +24,32 @@ const { title, description, image, techs } = Astro.props.frontmatter;
   <Main>
     <Header />
     <Typo variant='h2'>{title}</Typo>
-    <img src={image.url} alt={image.alt} />
-    <div class='dark:text-white'>
+    <div class='bg-slate-200 dark:bg-stone-800 rounded-lg flex justify-center'>
+      <img src={image.url} alt={image.alt} />
+    </div>
+    <div class='dark:text-white flex flex-col gap-2'>
       <slot />
+    </div>
+    <div class='mt-10 pt-10'>
+      <Typo variant='h5'>Techs usadas neste projeto</Typo>
+      <div class='' id='techs-container'>
+        {
+          techs.map((tech) => (
+            <Button color='info' href={`/techs/${tech}`}>
+              {tech}
+            </Button>
+          ))
+        }
+      </div>
     </div>
   </Main>
 </BaseLayout>
-<style></style>
+<style>
+  #techs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+</style>
