@@ -1,0 +1,27 @@
+---
+import Typo from "@components/Base/Typo.astro";
+
+interface Props {
+  tech: string;
+  url: string;
+  count: number;
+}
+
+const { tech, url, count } = Astro.props;
+---
+
+<a href={url}>
+  <div
+    class='relative flex items-center bg-cyan-400 hover:bg-cyan-500 group-hover:bg-cyan-500 dark:bg-cyan-500 dark:group-hover:bg-cyan-600 dark:hover:bg-cyan-600 rounded justify-between gap-2 overflow-hidden py-2 px-4'
+  >
+    <img
+      src={`/assets/images/techs/${tech}.png`}
+      alt='logo'
+      class='aspect-square object-contain text-white text-xs absolute top-0 left-0 h-full p-1 drop-shadow'
+    />
+    <div class='flex flex-col ml-10 pl-4'>
+      <Typo bold>{tech}</Typo>
+      <Typo><strong>{count}</strong> Projetos</Typo>
+    </div>
+  </div>
+</a>

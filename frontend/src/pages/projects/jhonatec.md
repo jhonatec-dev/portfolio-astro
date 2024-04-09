@@ -16,7 +16,7 @@ techs:
     atlas,
     vercel,
     railway,
-    materialui,
+    material-ui,
     mercadopago,
     webhook,
     fullstack,

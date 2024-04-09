@@ -1,6 +1,6 @@
 ---
 import Item from "@components/Archive/Item.astro";
-import Typo from "@components/Base/Typo.astro";
+import TechItem from "@components/Archive/TechItem.astro";
 import Header from "@components/Header/index.astro";
 import NavBar from "@components/NavBar/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -25,19 +25,29 @@ export async function getStaticPaths() {
   const uniqueTechs = [
     ...new Set(projectPosts.map((post) => post.frontmatter.techs).flat()),
   ];
+  let techs: { [key: string]: number } = {};
+  projectPosts.forEach(({ frontmatter }) => {
+    frontmatter.techs.forEach((tech: string) => {
+      if (techs[tech]) {
+        techs[tech] += 1;
+      } else {
+        techs[tech] = 1;
+      }
+    });
+  });
   return uniqueTechs.map((tech) => {
     const filteredPosts = projectPosts.filter((post) =>
       post.frontmatter.techs.includes(tech)
     );
     return {
       params: { tech },
-      props: { posts: filteredPosts },
+      props: { posts: filteredPosts, count: techs[tech] },
     };
   });
 }
 
 const { tech } = Astro.params;
-const { posts } = Astro.props;
+const { posts, count } = Astro.props;
 ---
 
 <BaseLayout
@@ -47,7 +57,10 @@ const { posts } = Astro.props;
   <Main>
     <Header />
     <NavBar client:only='react' />
-    <Typo variant='h4' align='center'>Projetos que usam a tech: {tech}</Typo>
+    <!-- <Typo variant='h4' align='center'>Projetos por Tech</Typo> -->
+    <div class="flex justify-center my-4 rounded group bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600">
+      <TechItem tech={tech} count={count} url='#' />
+    </div>
     <div class='grid-cols-3 grid gap-1 sm:gap-4'>
       {
         posts.map(({ frontmatter: { title, image }, url }) => (

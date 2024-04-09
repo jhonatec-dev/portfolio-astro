@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Card Savior
 description: Aplicação de gestão de gastos
 image: { url: /assets/images/projects/card-savior.png, alt: Card Savior }
-techs: [typescript, vite, react, hookforms, materialui, frontend]
+techs: [typescript, vite, react, react-hook-forms, material-ui, frontend]
 date: 2023-08-01
 ---
 

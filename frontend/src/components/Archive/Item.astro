@@ -12,7 +12,7 @@ const { text, url, img } = Astro.props;
   <div
     class='relative hover:*:block h-full aspect-square bg-slate-200 dark:bg-stone-800 rounded-lg'
   >
-    <img src={img} alt={text} class='h-full object-cover' />
+    <img src={img} alt={text} class='h-full object-cover rounded-lg' />
     <div class='text-white above-img line-clamp-1 flex-col'>
       <img
         src='/assets/icons/zoom-in.svg'

@@ -1,5 +1,5 @@
 ---
-import Item from "@components/Archive/Item.astro";
+import TechItem from "@components/Archive/TechItem.astro";
 import Header from "@components/Header/index.astro";
 import NavBar from "@components/NavBar/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -7,7 +7,7 @@ import Main from "@layouts/Main.astro";
 
 const projectPosts = await Astro.glob("../../pages/projects/*.md");
 let techs: { [key: string]: number } = {};
-let techsSorted = [];
+let techsSorted: [string, number][] = [];
 if (projectPosts) {
   projectPosts.forEach(({ frontmatter }) => {
     frontmatter.techs.forEach((tech: string) => {
@@ -18,9 +18,7 @@ if (projectPosts) {
       }
     });
   });
-  console.log('techs', techs);
   techsSorted = Object.entries(techs).sort((a, b) => b[1] - a[1]);
-  console.log('techsSorted', techsSorted);
 }
 ---
 
@@ -32,10 +30,10 @@ if (projectPosts) {
     <Header />
     <NavBar client:only='react' />
 
-    <div class=' gap-1 sm:gap-4'>
+    <div class='flex flex-wrap gap-4 justify-center'>
       {
-        projectPosts.map(({ frontmatter: { title, image }, url }) => (
-          <Item text={title} url={url as string} img={image.url} />
+        techsSorted.map(([tech, count]) => (
+          <TechItem tech={tech} count={count} url={`/techs/${tech}`}/>
         ))
       }
     </div>

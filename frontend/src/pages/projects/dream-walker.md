@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Dream Walker
 description: Jogo de Cartas estilo Super Trunfo
 image: { url: /assets/images/projects/dream-walker.png, alt: Dream Walker }
-techs: [javascript, react, css, materialui, google]
+techs: [javascript, react, css]
 
 date: 2023-03-25
 
