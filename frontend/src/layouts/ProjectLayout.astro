@@ -37,7 +37,10 @@ const { title, description, image, techs } = Astro.props.frontmatter;
   );
   const aTags = document.querySelectorAll(".post-container a");
   // console.log("aTags", aTags);
-  aTags.forEach((aTag) => (aTag.className = classes.join(" ")));
+  aTags.forEach((aTag) => {
+    aTag.className = classes.join(" ");
+    aTag.setAttribute("target", "_blank");
+  });
 </script>
 <BaseLayout title={title} description={description}>
   <Main>
@@ -55,7 +58,7 @@ const { title, description, image, techs } = Astro.props.frontmatter;
       <div class='flex flex-wrap gap-2 justify-center'>
         {
           techs.map((tech) => (
-            <Button color='info' href={`/techs/${tech}`} size="small">
+            <Button color='info' href={`/techs/${tech}`} size='small'>
               {tech}
             </Button>
           ))

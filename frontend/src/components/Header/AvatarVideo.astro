@@ -3,20 +3,20 @@ import Avatar from "@components/Base/Avatar.astro";
 import Tooltip from "@components/Base/Tooltip.astro";
 ---
 
-<Tooltip text="Assista meu vídeo">
-  <div class='relative w-24 container-avatar-video'>
-    <div
-      class={`bg-gradient-to-r from-cyan-500 to-blue-500 transition-all rounded-full duration-500 surrond-avatar`}
-    >
-      .
-    </div>
+<div class='relative container-avatar-video sm:scale-125'>
+  <div
+    class={`bg-gradient-to-r from-cyan-500 to-blue-500 transition-all rounded-full duration-500 surrond-avatar`}
+  >
+    .
+  </div>
+  <Tooltip text='Assista meu vídeo' placement='right'>
     <Avatar
       src='https://avatars.githubusercontent.com/u/5642440?v=4'
-      size={15}
+      size={10}
       href='/profile/video'
     />
-  </div>
-</Tooltip>
+  </Tooltip>
+</div>
 <style>
   .container-avatar-video:hover .surrond-avatar {
     transform: rotate(360deg);

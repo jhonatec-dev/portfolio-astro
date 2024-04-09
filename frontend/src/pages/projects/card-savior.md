@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
 title: Card Savior
-description: Website oficial da empresa de Suporte Técnico
+description: Aplicação de gestão de gastos
 image: { url: /assets/images/projects/card-savior.png, alt: Card Savior }
 techs: [typescript, vite, react, hookforms, materialui, frontend]
 date: 2023-08-01

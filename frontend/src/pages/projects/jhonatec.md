@@ -21,6 +21,7 @@ techs:
     webhook,
     fullstack,
     nodemailer,
+    typescript
   ]
 date: 2024-03-01
 ---

@@ -1,13 +1,14 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
 title: Busão Escolar
-description: Website oficial da empresa de Suporte Técnico
+description: Aplicação de vagas em ônibus escolar
 image: { url: /assets/images/projects/busao-escolar.png, alt: Busão Escolar }
-techs: [nextjs, nodejs, mongodb, mongoose, dayjs, react-hook-forms, jwt, nodemailer, atlas, vercel, railway, materialui, fullstack]
+techs: [nextjs, nodejs, mongodb, mongoose, dayjs, react-hook-forms, jwt, nodemailer, atlas, vercel, railway, materialui, fullstack, typescript]
 
 date: 2023-12-25
 
 ---
+[Clique para acessar](https://busao.jhonatec.dev/ "Busão Escolar") [Repositório](https://github.com/jhonatec-dev/busao_escolar "GitHub")
 
 #### Esta aplicação permite que os alunos peçam vaga no ônibus escolar universitário
 
