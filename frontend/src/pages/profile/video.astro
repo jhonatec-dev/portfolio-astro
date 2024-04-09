@@ -8,33 +8,21 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   title='Sobre mim'
   description='Saiba um pouco mais sobre quem sou...'
 >
-  <div class='icon-fechar-video absolute z-10 flex justify-between w-full p-4 drop-shadow-md'>
+  <div
+    class='icon-fechar-video absolute z-10 flex justify-between w-full p-4 drop-shadow-md'
+  >
     <Logo />
     <IconButton icon='close' href='/' size={2.5} />
   </div>
-  <div class='container-video' id='vid'>
-    <video src='/assets/videos/profile.mp4' autoplay controls class="shadow-xl"></video>
+  <div
+    class='container-video flex justify-center items-center w-full h-dvh'
+    id='vid'
+  >
+    <video
+      src='/assets/videos/profile.mp4'
+      autoplay
+      controls
+      class='shadow-xl w-full h-full object-cover rounded-none sm:w-auto sm:h-auto sm:rounded-lg'
+    ></video>
   </div>
 </BaseLayout>
-<style>
-  video {
-    border-radius: 8px;
-  }
-  .container-video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100dvh;
-    width: 100dvw;
-  }
-
-  .icon-fechar-video {
-  }
-  @media screen and (max-width: 600px) {
-    video {
-      border-radius: 0;
-      height: 100dvh;
-      object-fit: cover;
-    }
-  }
-</style>

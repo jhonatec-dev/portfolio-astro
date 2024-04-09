@@ -2,6 +2,7 @@
 import Button from "@components/Base/Button.astro";
 import Typo from "@components/Base/Typo.astro";
 import Header from "@components/Header/index.astro";
+import NavBar from "@components/NavBar";
 import BaseLayout from "./BaseLayout.astro";
 import Main from "./Main.astro";
 
@@ -23,6 +24,7 @@ const { title, description, image, techs } = Astro.props.frontmatter;
 <BaseLayout title={title} description={description}>
   <Main>
     <Header />
+    <NavBar client:only="react" />
     <Typo variant='h2'>{title}</Typo>
     <div class='bg-slate-200 dark:bg-stone-800 rounded-lg flex justify-center'>
       <img src={image.url} alt={image.alt} />

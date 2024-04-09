@@ -6,6 +6,7 @@ import Header from "@components/Header/index.astro";
 import Main from "@layouts/Main.astro";
 import Item from "@components/Archive/Item.astro";
 import dayjs from "dayjs";
+import NavBar from "@components/NavBar/index";
 
 const projectPosts = await Astro.glob("../pages/projects/*.md");
 if (projectPosts) {
@@ -31,9 +32,9 @@ console.log("projectPosts -->", projectPosts.length);
 >
   <Main>
     <Header />
-    <Typo variant='h4' align='center'>Aqui vai ter umas abinhas</Typo>
+    <NavBar client:only='react' />
 
-    <div class='grid-cols-3 grid gap-2'>
+    <div class='grid-cols-3 grid gap-1 sm:gap-4'>
       {
         projectPosts.map(({ frontmatter: { title, image }, url }) => (
           <Item text={title} url={url as string} img={image.url} />
@@ -42,10 +43,3 @@ console.log("projectPosts -->", projectPosts.length);
     </div>
   </Main>
 </BaseLayout>
-<style>
-  @media screen and (max-width: 640px) {
-    .grid {
-      gap: 0.4rem;
-    }
-  }
-</style>
