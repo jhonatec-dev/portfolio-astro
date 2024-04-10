@@ -4,7 +4,7 @@ title: Codando do zero o projeto BLOGS SEQUELS
 description: Projeto desafio em Node/Express/MySQL/Sequelize
 image:
   {
-    url: https://i9.ytimg.com/vi/cAw22gopmXg/maxresdefault.jpg?v=64ea3df4&sqp=CJjO2rAG&rs=AOn4CLA2sHiK7yk_BSjQqi3VvYA5RtYiag,
+    url: /assets/images/tutorials/blog-sequels.jpg,
     alt: thumbnail,
   }
 date: 2023-08-26

@@ -1,4 +1,6 @@
 ---
+import Typo from "@components/Base/Typo.astro";
+
 interface Props {
   text: string;
   url: string;
@@ -10,7 +12,7 @@ const { text, url, img } = Astro.props;
 
 <a href={url}>
   <div
-    class='relative h-full aspect-square bg-slate-200 dark:bg-stone-800 rounded-lg'
+    class='relative h-full aspect-square bg-slate-200 dark:bg-stone-800 rounded-lg shadow dark:shadow-sm-light'
   >
     <img src={img} alt={text} class='h-full object-cover rounded-lg' />
     <div class='text-white above-img'>
@@ -20,8 +22,7 @@ const { text, url, img } = Astro.props;
         width='32px'
         class='invert'
       />
-      {text}
+      <Typo variant='body2' color="text-white">{text}</Typo>
     </div>
   </div>
 </a>
-

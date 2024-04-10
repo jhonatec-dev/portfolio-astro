@@ -4,7 +4,7 @@ title: Configurando Ambiente DEV do zero (Linux)
 description: Aprenda a instalar as principais ferramentas do desenvolvimento web
 image:
   {
-    url: https://i9.ytimg.com/vi/t1b2a5pzcvE/maxresdefault.jpg?v=652da938&sqp=COzL2rAG&rs=AOn4CLB3CAV7jMUncqOqJeCl24wQKJJacA,
+    url: /assets/images/tutorials/config-ubuntu.jpg,
     alt: thumbnail,
   }
 date: 2023-10-16

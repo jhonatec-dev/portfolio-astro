@@ -4,7 +4,7 @@ title: Configurando Ambiente DEV do zero (MacOS)
 description: Aprenda a instalar as principais ferramentas do desenvolvimento web
 image:
   {
-    url: https://i9.ytimg.com/vi/MlWWcodfvgY/maxresdefault.jpg?v=652ead6e&sqp=COzL2rAG&rs=AOn4CLCzsJMHPodbP0rSUDXoftzN5FGS3Q,
+    url: /assets/images/tutorials/config-mac.jpg,
     alt: thumbnail,
   }
 date: 2023-10-17
