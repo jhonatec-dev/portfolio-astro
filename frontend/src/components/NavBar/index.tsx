@@ -1,25 +1,22 @@
-import { paths } from "./paths";
+import { paths } from "./paths.tsx";
 
 export default function NavBar() {
   const pathname = window.location.pathname;
   // console.log("PATHNAME --->", pathname);
   const divClasses: string[] = [];
   divClasses.push(
-    " group flex gap-2 flex-col sm:flex-row justify-center items-center "
+    " group flex gap-0 sm:gap-3 p-1 flex-col sm:flex-row " +
+      " justify-center items-center border-t-4 border-transparent "
   );
-  divClasses.push(
-    " text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white "
-  );
-  divClasses.push(" p-2 ");
+  const normalDiv =
+    "text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white";
 
-  const activeDivClasses: string[] = [];
-  activeDivClasses.push(
-    " text-cyan-400 dark:text-cyan-400 border-t-4 border-cyan-400 dark:border-cyan-400 "
-  );
-  activeDivClasses.push(" hover:text-cyan-500 dark:hover:text-cyan-400");
+  const activeDiv =
+    " text-cyan-400 dark:text-cyan-400 " +
+    " hover:text-cyan-500 dark:hover:text-cyan-400 " +
+    " border-cyan-400 dark:border-cyan-400 ";
 
   function isPathActive(path: string): boolean {
-    // console.log("PATH --->", path, 'PATHNAME --->', pathname);
     if (path === "/") {
       return path === pathname || pathname.includes("/projects");
     } else {
@@ -29,35 +26,39 @@ export default function NavBar() {
 
   function getDivClasses(path: string): string {
     if (isPathActive(path)) {
-      return divClasses.concat(activeDivClasses).join("");
+      return divClasses.join("") + activeDiv;
     }
-    return divClasses.join("");
+    return divClasses.join("") + normalDiv;
   }
 
-  function getImgStyle(path: string) {
+  function getSVGClasses(path: string): string {
+    const base = " w-8 h-8 ";
     if (isPathActive(path)) {
-      return {
-        filter:
-          "invert(67%) sepia(73%) saturate(1167%) hue-rotate(146deg) brightness(102%) contrast(87%)",
-        opacity: 1,
-      };
+      return (
+        base +
+        " fill-cyan-400 group-hover:fill-cyan-500 dark:fill-cyan-400 dark:group-hover:fill-cyan-400"
+      );
     }
-    return {};
+    return (
+      base +
+      " fill-gray-500 group-hover:fill-black dark:fill-gray-400 dark:group-hover:fill-white"
+    );
   }
 
   return (
-    <div className='flex justify-between sm:justify-center z-50 border-t-2 gap-0 sm:gap-2 w-full fixed bg-white dark:bg-stone-900 bottom-0 left-0 sm:relative sm:my-4'>
+    <div className='flex px-2 sm:justify-center z-50 border-t-2 gap-0 sm:gap-2 w-full fixed bg-white dark:bg-stone-900 bottom-0 left-0 sm:relative sm:my-4'>
       {paths.map((path, index) => (
-        <a key={index} href={path.url} style={{ marginTop: -3 }}>
+        <a key={index} href={path.url} style={{ marginTop: -3 }} className="flex-grow">
           <div className={getDivClasses(path.url)}>
-            <img
-              src={`/assets/icons/${path.label.toLowerCase()}.svg`}
-              alt={path.label}
-              width={15}
-              className={"opacity-50 dark:invert group-hover:opacity-100"}
-              style={getImgStyle(path.url)}
-            />
-            <p className='text-sm sm:text-base'>{path.label}</p>
+            <svg
+              className={getSVGClasses(path.url)}
+              viewBox={path.viewBox}
+              xmlns='http://www.w3.org/2000/svg'
+              xmlSpace='preserve'
+            >
+              {path.element}
+            </svg>
+            <p className='text-xs sm:text-base'>{path.label}</p>
           </div>
         </a>
       ))}
