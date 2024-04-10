@@ -24,7 +24,7 @@ if (projectPosts) {
     <Header />
     <NavBar client:only='react' />
 
-    <div class='grid-cols-3 grid gap-1 sm:gap-4'>
+    <div class='grid-cols-3 grid gap-1 sm:gap-4 p-1'>
       {
         projectPosts.map(({ frontmatter: { title, image }, url }) => (
           <Item text={title} url={url as string} img={image.url} />

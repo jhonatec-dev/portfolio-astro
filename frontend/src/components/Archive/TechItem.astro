@@ -12,15 +12,15 @@ const { tech, url, count } = Astro.props;
 
 <a href={url}>
   <div
-    class='relative flex items-center bg-cyan-400 hover:bg-cyan-500 group-hover:bg-cyan-500 dark:bg-cyan-500 dark:group-hover:bg-cyan-600 dark:hover:bg-cyan-600 rounded justify-between gap-2 overflow-hidden py-2 px-4'
+    class='relative flex items-center bg-cyan-400 hover:bg-cyan-500 group-hover:bg-cyan-500 dark:bg-cyan-500 dark:group-hover:bg-cyan-600 dark:hover:bg-cyan-600 rounded justify-between gap-2 overflow-hidden py-2 px-2'
   >
     <img
       src={`/assets/images/techs/${tech}.png`}
       alt='logo'
-      class='aspect-square object-contain text-white text-xs absolute top-0 left-0 h-full p-1 drop-shadow'
+      class='aspect-square object-contain text-white text-xs absolute top-0 left-0 h-full p-2 drop-shadow'
     />
-    <div class='flex flex-col ml-10 pl-4'>
-      <Typo bold>{tech}</Typo>
+    <div class='text-right w-full'>
+      <Typo bold variant={tech.length > 10 ? "body2" : "body1"}>{tech}</Typo>
       <Typo><strong>{count}</strong> {count > 1 ? "Projetos" : "Projeto"}</Typo>
     </div>
   </div>
