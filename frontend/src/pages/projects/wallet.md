@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Wallet
 description: Aplicação de controle de gastos
 image: { url: /assets/images/projects/wallet.png, alt: Wallet }
-techs: [javascript, react, css, animations, material-ui]
+techs: [javascript, react, css, animations, material-ui, frontend]
 
 date: 2023-04-25
 

@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Emo Tunes
 description: Aplicação player de música com ênfase no estilo emo
 image: { url: /assets/images/projects/tunes.png, alt: Emo Tunes }
-techs: [javascript, react, css, animations, material-ui]
+techs: [javascript, react, css, animations, material-ui, frontend]
 
 date: 2023-03-25
 

@@ -17,3 +17,4 @@ date: 2023-12-25
 - Controle as vagas de cada dia, gere relatório mensal.
 - Disparo de e-mail para alunos confirmando solicitações de vagas, alterações de viagens.
 - Reorganização automática das viagens em caso de remoção/adição de alunos.
+- Light/Dark Mode com ThemeProvider

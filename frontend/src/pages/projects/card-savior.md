@@ -16,3 +16,4 @@ date: 2023-08-01
 - Aplicação para controlar os gastos de cartões de crédito (compra única, parcelada ou assinatura).
 - É possível enviar cobranças como mensagens do WhatsApp.
 - Relação de todas os gastos em atraso.
+- Light/Dark Mode com ThemeProvider.

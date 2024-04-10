@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Star Wars Planets Search
 description: Aplicação de busca dos planetas da Saga Star Wars
 image: { url: /assets/images/projects/starwars.png, alt: Star Wars Planets Search }
-techs: [javascript, react, hooks, material-ui]
+techs: [javascript, react, hooks, material-ui, frontend]
 
 date: 2023-04-25
 

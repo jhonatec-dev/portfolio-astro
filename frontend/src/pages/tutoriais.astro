@@ -22,6 +22,9 @@ import Main from "@layouts/Main.astro";
   <Main>
     <Header />
     <NavBar client:only='react' />
+    <div class='max-w-sm my-0 mx-auto'>
+      <img src='/assets/icons/construction.svg' alt='Em construção' />
+    </div>
     <Typo variant='h2' align='center'>Em breve...</Typo>
     <!-- <div class='grid-cols-3 grid gap-1 sm:gap-4'>
       {

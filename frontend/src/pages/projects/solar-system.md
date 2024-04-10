@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Solar System
 description: Aplicação sobre o Sistema Solar
 image: { url: /assets/images/projects/solar-system.png, alt: Solar System }
-techs: [javascript, react, css, animations]
+techs: [javascript, react, css, animations, frontend]
 
 date: 2023-03-01
 

@@ -21,7 +21,7 @@ const { tech, url, count } = Astro.props;
     />
     <div class='flex flex-col ml-10 pl-4'>
       <Typo bold>{tech}</Typo>
-      <Typo><strong>{count}</strong> Projetos</Typo>
+      <Typo><strong>{count}</strong> {count > 1 ? "Projetos" : "Projeto"}</Typo>
     </div>
   </div>
 </a>
