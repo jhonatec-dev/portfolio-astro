@@ -5,6 +5,7 @@ import Tooltip from "@components/Base/Tooltip.astro";
 import Typo from "@components/Base/Typo.astro";
 import dayjs from "dayjs";
 import AvatarVideo from "./AvatarVideo.astro";
+import Certifications from "./Certifications/index.astro";
 import { links } from "./links";
 import Logo from "./Logo.astro";
 import ToggleTheme from "./ToggleTheme.astro";
@@ -55,10 +56,11 @@ if (tutorialPosts) {
         links.map((link) => (
           <Tooltip text={link.name}>
             <Fab
-              icon={link.name.toLowerCase()}
+              icon={`/assets/icons/${link.name.toLowerCase()}.svg`}
               size={2.5}
               href={link.url}
               target='_blank'
+              invertOnDark
             />
           </Tooltip>
         ))
@@ -66,17 +68,24 @@ if (tutorialPosts) {
     </div>
   </div>
 </header>
-<div class='flex justify-center gap-1 sm:hidden'>
+<Certifications />
+<div class='flex justify-evenly gap-1 sm:hidden border-y-2'>
   <Button variant='text' href='/'>
-    <strong>{projects}</strong>
-    {projects === 1 ? "projeto" : "projetos"}
+    <Typo bold>{projects}</Typo>
+    <Typo variant='body2' lessOpacity>
+      {projects === 1 ? "projeto" : "projetos"}
+    </Typo>
   </Button>
   <Button variant='text' href='/techs'>
-    <strong>{techs}</strong>
-    {techs === 1 ? "tech" : "techs"}
+    <Typo bold>{techs}</Typo>
+    <Typo variant='body2' lessOpacity>
+      {techs === 1 ? "tech" : "techs"}
+    </Typo>
   </Button>
   <Button variant='text' href='/tutoriais'>
-    <strong>{tutorials}</strong>
-    {tutorials === 1 ? "tutorial" : "tutoriais"}
+    <Typo bold>{tutorials}</Typo>
+    <Typo variant='body2' lessOpacity>
+      {tutorials === 1 ? "tutorial" : "tutoriais"}
+    </Typo>
   </Button>
 </div>

@@ -1,0 +1,74 @@
+---
+import Item from "@components/Archive/Item.astro";
+import TechItem from "@components/Archive/TechItem.astro";
+import Header from "@components/Header/index.astro";
+import NavBar from "@components/NavBar/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@layouts/Main.astro";
+
+interface Projects {
+  frontmatter: {
+    title: string;
+    description: string;
+    techs: string[];
+    image: {
+      url: string;
+      alt: string;
+    };
+  };
+  url: string;
+}
+export async function getStaticPaths() {
+  const projectPosts = (await Astro.glob(
+    "../../pages/projects/*.md"
+  )) as Projects[];
+  const uniqueTechs = [
+    ...new Set(projectPosts.map((post) => post.frontmatter.techs).flat()),
+  ];
+  let techs: { [key: string]: number } = {};
+  projectPosts.forEach(({ frontmatter }) => {
+    frontmatter.techs.forEach((tech: string) => {
+      if (techs[tech]) {
+        techs[tech] += 1;
+      } else {
+        techs[tech] = 1;
+      }
+    });
+  });
+  return uniqueTechs.map((tech) => {
+    const filteredPosts = projectPosts.filter((post) =>
+      post.frontmatter.techs.includes(tech)
+    );
+    return {
+      params: { tech },
+      props: { posts: filteredPosts, count: techs[tech] },
+    };
+  });
+}
+
+const { tech } = Astro.params;
+const { posts, count } = Astro.props;
+---
+
+<BaseLayout
+  title='Jhonatec | Portfólio'
+  description={`Projetos com tecnologia ${tech}`}
+>
+  <Main>
+    <Header />
+    <NavBar client:only='react' />
+    <!-- <Typo variant='h4' align='center'>Projetos por Tech</Typo> -->
+    <div
+      class='flex justify-center my-4 rounded group bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600'
+    >
+      <TechItem tech={tech} count={count} url='#' />
+    </div>
+    <div class='grid-cols-3 grid gap-1 sm:gap-4'>
+      {
+        posts.map(({ frontmatter: { title, image }, url }) => (
+          <Item text={title} url={url as string} img={image.url} />
+        ))
+      }
+    </div>
+  </Main>
+</BaseLayout>

@@ -12,9 +12,13 @@ interface Props {
     | "caption";
   bold?: boolean;
   align?: "left" | "center" | "right";
+  lessOpacity?: boolean;
 }
-const { variant, bold, align } = Astro.props;
+const { variant, bold, align, lessOpacity } = Astro.props;
 let classes = ["dark:text-white", "text-black"];
+if (lessOpacity) {
+  classes.push("text-opacity-80");
+}
 if (bold) {
   classes.push("font-bold");
 }
@@ -64,8 +68,8 @@ if (variant) {
   }
 }
 
-if(align) {
-  switch(align) {
+if (align) {
+  switch (align) {
     case "left":
       classes.push("text-left");
       break;
@@ -80,7 +84,6 @@ if(align) {
       break;
   }
 }
-
 ---
 
 <Title class:list={classes}>
