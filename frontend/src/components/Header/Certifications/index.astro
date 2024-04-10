@@ -1,0 +1,49 @@
+---
+import Avatar from "@components/Base/Avatar.astro";
+import Tooltip from "@components/Base/Tooltip.astro";
+import { certs } from "./certs";
+
+/*
+
+interface Props {
+  href?: string;
+  target?: string;
+  itemid?: string;
+  icon: string;
+  size?: number;
+}
+
+
+interface Props {
+  size: number;
+  src: string;
+  variant?: "circle" | "rounded" | "square";
+  itemid?: string;
+  href?: string;
+  target?: string;
+}
+*/
+---
+
+{
+  certs && (
+    <div class='flex gap-2 my-2 sm:mb-6 sm:mt-0'>
+      {certs.map((cert) => (
+        <div class='relative container-avatar-video'>
+          <div
+            class={`bg-gradient-to-r from-cyan-500 to-blue-500 transition-all rounded-full duration-500 surrond-avatar`}
+          >
+            .
+          </div>
+          <Tooltip text='Veja minha certificação' placement='right'>
+            <Avatar
+              src={cert.logo}
+              size={6}
+              href={`/certificados/${cert.title.toLowerCase().replace(/ /g, "-")}`}
+            />
+          </Tooltip>
+        </div>
+      ))}
+    </div>
+  )
+}

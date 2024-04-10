@@ -23,7 +23,6 @@ const { title, description, faviconURL="/favicon.svg", ogImageURL="/assets/image
   // TODO: Add a toggle to switch between light and dark mode
   // TODO: Record user preference in local storage
   const themeMode = localStorage.getItem("theme-mode") ?? "light";
-  console.log("themeMode", themeMode)
   document.getElementsByTagName("html")[0].className = themeMode; //dark
 </script>
 <html lang='pt-br'>

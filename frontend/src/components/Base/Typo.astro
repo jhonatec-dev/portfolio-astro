@@ -12,14 +12,18 @@ interface Props {
     | "caption";
   bold?: boolean;
   align?: "left" | "center" | "right";
+  lessOpacity?: boolean;
   color?: string;
 }
-const { variant, bold, align, color } = Astro.props;
+const { variant, bold, align, lessOpacity, color } = Astro.props;
 const classes: string[] = [];
 if (color) {
   classes.push(color);
 } else {
   classes.push("dark:text-white", "text-black");
+}
+  if (lessOpacity) {
+  classes.push("text-opacity-80");
 }
 if (bold) {
   classes.push("font-bold");

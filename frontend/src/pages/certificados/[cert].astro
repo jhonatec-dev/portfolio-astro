@@ -1,0 +1,32 @@
+---
+import Typo from "@components/Base/Typo.astro";
+import { certs } from "@components/Header/Certifications/certs";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  return certs.map((cert, index) => {
+    const title = cert.title.toLowerCase().replace(/ /g, "-");
+    console.log("logando o titlulo", title);
+    const content = cert;
+    return {
+      params: { cert: title },
+      props: {
+        content,
+        // prev: certs[index - 1] ?? null,
+        // next: certs[index + 1] ?? null,
+      },
+    };
+  });
+}
+
+const { cert } = Astro.params;
+const { content } = Astro.props;
+---
+
+<BaseLayout
+  title='Jhonatec | Portfólio'
+  description='Ceritificações do Jhonatec'
+>
+  <Typo>Ceritificações</Typo>
+  {JSON.stringify(content, null, 2)}
+</BaseLayout>

@@ -5,13 +5,14 @@ interface Props {
   itemid?: string;
   icon: string;
   size?: number;
+  invertOnDark?: boolean;
 }
 
-const { href, target, itemid, icon, size } = Astro.props;
+const { href, target, itemid, icon, size, invertOnDark } = Astro.props;
 const classes: string[] = [];
 classes.push("bg-gray-100 hover:bg-gray-300");
 classes.push("dark:bg-gray-800 dark:hover:bg-gray-500");
-classes.push("p-2 rounded-full cursor-pointer");
+classes.push("p-2 rounded-full cursor-pointer overflow-hidden");
 
 let width = 64;
 if (size) {
@@ -21,6 +22,11 @@ if (size) {
 
 <a href={href} target={target} itemid={itemid}>
   <div class:list={classes}>
-    <img class="dark:invert" src={`/assets/icons/${icon}.svg`} alt='👾' width={width} />
+    <img
+      class={invertOnDark ? "dark:invert" : "rounded-full"}
+      src={icon}
+      alt='👾'
+      width={width}
+    />
   </div>
 </a>

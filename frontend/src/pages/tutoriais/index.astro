@@ -7,10 +7,8 @@ import Main from "@layouts/Main.astro";
 import dayjs from "dayjs";
 
 const posts = await Astro.glob("../tutoriais/*.md");
-console.log("\n\nPOSTS \n", posts, "\n\n");
 if (posts) {
   posts.sort((a, b) => {
-    console.log("a", a.frontmatter);
     return dayjs(a.frontmatter.date).isBefore(dayjs(b.frontmatter.date))
       ? 1
       : -1;
