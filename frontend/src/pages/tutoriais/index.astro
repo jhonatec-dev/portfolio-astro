@@ -1,0 +1,37 @@
+---
+import Item from "@components/Archive/Item.astro";
+import Header from "@components/Header/index.astro";
+import NavBar from "@components/NavBar/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@layouts/Main.astro";
+import dayjs from "dayjs";
+
+const posts = await Astro.glob("../tutoriais/*.md");
+console.log("\n\nPOSTS \n", posts, "\n\n");
+if (posts) {
+  posts.sort((a, b) => {
+    console.log("a", a.frontmatter);
+    return dayjs(a.frontmatter.date).isBefore(dayjs(b.frontmatter.date))
+      ? 1
+      : -1;
+  });
+}
+---
+
+<BaseLayout
+  title='Jhonatec | Portfólio'
+  description='Bem-vindo ao meu portfólio!'
+>
+  <Main>
+    <Header />
+    <NavBar client:only='react' />
+    <div class='grid-cols-3 grid gap-1 sm:gap-4 p-1'>
+      {
+        posts.length > 0 &&
+          posts.map(({ frontmatter: { title, image }, url }) => (
+            <Item text={title} url={url as string} img={image.url} />
+          ))
+      }
+    </div>
+  </Main>
+</BaseLayout>
