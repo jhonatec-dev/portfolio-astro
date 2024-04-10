@@ -4,7 +4,7 @@ title: Multiple Layouts in NextJS
 description: Learn how to build a complete application with Next.JS 14!
 image:
   {
-    url: https://i9.ytimg.com/vi_webp/gq6fvFjznHE/maxresdefault.webp?v=6604527d&sqp=COC22rAG&rs=AOn4CLCoYNbliWTEgSbLwL_vjnYdLC9Qsg,
+    url: /assets/images/tutorials/multiple-layouts.jpg,
     alt: thumbnail,
   }
 date: 2024-03-27

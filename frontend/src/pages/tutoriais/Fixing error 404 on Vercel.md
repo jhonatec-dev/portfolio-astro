@@ -4,7 +4,7 @@ title: Fixed ERROR 404 on Vercel
 description: Fixing error 404 on Vercel for React Apps
 image:
   {
-    url: https://i9.ytimg.com/vi_webp/Uzuh1LpAKuw/maxresdefault.webp?v=64d90631&sqp=CMTQ2rAG&rs=AOn4CLBkeFZJJ0ikYKtDWsfgY8hNMUtLsw,
+    url: /assets/images/tutorials/vercel-404.jpg,
     alt: thumbnail,
   }
 date: 2023-08-13

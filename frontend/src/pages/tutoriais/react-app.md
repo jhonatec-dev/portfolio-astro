@@ -4,7 +4,7 @@ title: React site em APP
 description: Transforme seus projetos React em Aplicativos de forma simples
 image:
   {
-    url: https://i9.ytimg.com/vi_webp/_yysNI3Xi7g/maxresdefault.webp?v=6498b5fa&sqp=CJzV2rAG&rs=AOn4CLAqsyAhIWHzbzC89VhwSUa0AM1K7w,
+    url: /assets/images/tutorials/manifest.jpg,
     alt: thumbnail,
   }
 date: 2023-06-25

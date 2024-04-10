@@ -12,9 +12,15 @@ interface Props {
     | "caption";
   bold?: boolean;
   align?: "left" | "center" | "right";
+  color?: string;
 }
-const { variant, bold, align } = Astro.props;
-let classes = ["dark:text-white", "text-black"];
+const { variant, bold, align, color } = Astro.props;
+const classes: string[] = [];
+if (color) {
+  classes.push(color);
+} else {
+  classes.push("dark:text-white", "text-black");
+}
 if (bold) {
   classes.push("font-bold");
 }
@@ -64,8 +70,8 @@ if (variant) {
   }
 }
 
-if(align) {
-  switch(align) {
+if (align) {
+  switch (align) {
     case "left":
       classes.push("text-left");
       break;
@@ -80,7 +86,6 @@ if(align) {
       break;
   }
 }
-
 ---
 
 <Title class:list={classes}>

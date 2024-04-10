@@ -4,7 +4,7 @@ title: Do Zero ao Deploy
 description: Aprenda a conectar as principais ferramentas do desenvolvimento web (Node, Next e MongoDB)
 image:
   {
-    url: https://i9.ytimg.com/vi/gDqMU3sKqbo/maxresdefault.jpg?v=65ca0118&sqp=CLzC2rAG&rs=AOn4CLDeGAO6hOtoAmffoFg4YpRug5LOpw,
+    url: /assets/images/tutorials/zero-ao-deploy.jpg,
     alt: thumbnail,
   }
 date: 2024-02-12
