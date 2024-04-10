@@ -14,11 +14,16 @@ const hoje = dayjs();
 const idade = hoje.diff(nasc, "year");
 let projects = 0;
 let techs = 0;
+let tutorials = 0;
 const projectPosts = await Astro.glob("../../pages/projects/*.md");
 if (projectPosts) {
   projects = projectPosts.length;
   const techList = projectPosts.map(({ frontmatter }) => frontmatter.techs);
   techs = [...new Set(techList.flat())].length;
+}
+const tutorialPosts = await Astro.glob("../../pages/tutoriais/*.md");
+if (tutorialPosts) {
+  tutorials = tutorialPosts.length;
 }
 ---
 
@@ -32,15 +37,18 @@ if (projectPosts) {
       <Typo variant='body2'>Software Engineer, Dev Full Stack</Typo>
     </div>
     <div class='hidden sm:block'>
-      <Button variant='text' href='/'
-        ><strong>{projects}</strong> projetos</Button
-      >
-      <Button variant='text' href='/techs'
-        ><strong>{techs}</strong> techs</Button
-      >
-      <Button variant='text' href='/tutoriais'
-        ><strong>X</strong> tutoriais</Button
-      >
+      <Button variant='text' href='/'>
+        <strong>{projects}</strong>
+        {projects === 1 ? "projeto" : "projetos"}
+      </Button>
+      <Button variant='text' href='/techs'>
+        <strong>{techs}</strong>
+        {techs === 1 ? "tech" : "techs"}
+      </Button>
+      <Button variant='text' href='/tutoriais'>
+        <strong>{tutorials}</strong>
+        {tutorials === 1 ? "tutorial" : "tutoriais"}
+      </Button>
     </div>
     <div class='flex gap-1 pl-3'>
       {
@@ -59,7 +67,16 @@ if (projectPosts) {
   </div>
 </header>
 <div class='flex justify-center gap-1 sm:hidden'>
-  <Button variant='text' href='/'><strong>{projects}</strong> projetos</Button>
-  <Button variant='text' href='/techs'><strong>{techs}</strong> techs</Button>
-  <Button variant='text' href='/tutoriais'><strong>X</strong> tutoriais</Button>
+  <Button variant='text' href='/'>
+    <strong>{projects}</strong>
+    {projects === 1 ? "projeto" : "projetos"}
+  </Button>
+  <Button variant='text' href='/techs'>
+    <strong>{techs}</strong>
+    {techs === 1 ? "tech" : "techs"}
+  </Button>
+  <Button variant='text' href='/tutoriais'>
+    <strong>{tutorials}</strong>
+    {tutorials === 1 ? "tutorial" : "tutoriais"}
+  </Button>
 </div>
