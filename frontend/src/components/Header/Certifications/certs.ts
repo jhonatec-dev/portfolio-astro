@@ -18,7 +18,7 @@ export const certs = [
   {
     title: "Node Basic",
     description: "Certificação por projeto de Node.js",
-    issuer: "FIAP",
+    issuer: "Hacker Rank",
     image: "/assets/images/certs/hacker-rank-node-basic.png",
     logo: "/assets/images/certs/hacker-rank-logo.png",
     url: "https://www.hackerrank.com/certificates/c530b5ef74ad",
