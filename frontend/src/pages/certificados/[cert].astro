@@ -1,4 +1,7 @@
 ---
+import Button from "@components/Base/Button.astro";
+import Fab from "@components/Base/Fab.astro";
+import IconButton from "@components/Base/IconButton.astro";
 import Typo from "@components/Base/Typo.astro";
 import { certs } from "@components/Header/Certifications/certs";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -12,21 +15,132 @@ export async function getStaticPaths() {
       params: { cert: title },
       props: {
         content,
-        // prev: certs[index - 1] ?? null,
-        // next: certs[index + 1] ?? null,
+        prev: certs[index - 1] ?? null,
+        next: certs[index + 1] ?? null,
       },
     };
   });
 }
 
 const { cert } = Astro.params;
-const { content } = Astro.props;
+const { content, prev, next } = Astro.props;
 ---
+
+<script>
+  let progress = 0;
+  const progressBar = document.getElementById("progress-bar-cert");
+  progressBar?.setAttribute("style", `width: ${progress}%`);
+
+  function updateProgressBar() {
+    progress += 5;
+    progressBar?.setAttribute("style", `width: ${progress}%`);
+    console.log("PROGRESS ---->", progress);
+  }
+
+  function NextCert() {
+    const closeButton = document.getElementById("close-btn");
+    const nextButton = document.getElementById("next-cert");
+    if (nextButton) {
+      nextButton.click();
+    } else {
+      closeButton?.click();
+    }
+  }
+  const interval = setInterval(() => {
+    if (progress >= 95) {
+      clearInterval(interval);
+      setTimeout(() => {
+        NextCert();
+      }, 1000);
+    }
+    updateProgressBar();
+  }, 50);
+</script>
 
 <BaseLayout
   title='Jhonatec | Portfólio'
   description='Ceritificações do Jhonatec'
 >
-  <Typo>Ceritificações</Typo>
-  {JSON.stringify(content, null, 2)}
+  <div class='flex flex-col h-dvh justify-between items-center p-2 pb-8'>
+    <div class='w-full'>
+      <!-- Progress Bar -->
+      <div
+        class='w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700 opacity-90 mt-1'
+      >
+        <div
+          class='bg-cyan-500 h-1 rounded-full'
+          style='width: 0%'
+          id='progress-bar-cert'
+        >
+        </div>
+      </div>
+      <!-- Content Header -->
+      <div class='z-10 flex justify-between w-full px-4 py-1 drop-shadow-md'>
+        <div class='flex items-center gap-2'>
+          <img
+            src={content.logo}
+            class='rounded-full w-8 border-s-white shadow dark:shadow-sm-light'
+          />
+          <Typo>{content.issuer}</Typo>
+        </div>
+        <IconButton icon='close' href='/' size={2.4} id='close-btn' />
+      </div>
+    </div>
+    <!-- Content -->
+    <img
+      src={content.image}
+      class='sm:max-w-2xl rounded-lg shadow dark:shadow-sm-light'
+    />
+    <img src={content.image} id='background-img' />
+    <!-- Next and Prev -->
+    {
+      prev && (
+        <a
+          class='cursor-pointer'
+          href={prev.title.toLowerCase().replace(/ /g, "-")}
+          id='prev-cert'
+        >
+          <div class='bg-gray-300 shadow rounded-full p-2 hover:bg-gray-500 opacity-75 absolute left-1 top-1/3 mt-10 sm:left-32'>
+            <img src='/assets/icons/left.svg' class='w-4 sm:w-6' />
+          </div>
+        </a>
+      )
+    }
+    {
+      next && (
+        <a
+          class='cursor-pointer'
+          href={next.title.toLowerCase().replace(/ /g, "-")}
+          id='next-cert'
+        >
+          <div class='bg-gray-300 shadow rounded-full p-2 hover:bg-gray-500 opacity-75 absolute right-1 top-1/3 mt-10 sm:right-32'>
+            <img src='/assets/icons/right.svg' class='w-4 sm:w-6' />
+          </div>
+        </a>
+      )
+    }
+    <!--  -->
+    <div
+      class='flex flex-col items-center gap-2 bg-opacity-60 bg-stone-500 rounded px-10 py-2 drop-shadow'
+    >
+      <Typo align='center' bold color='text-white'>{content.title}</Typo>
+      <Typo align='center' color='text-white'>{content.description}</Typo>
+      <Button href={content.url} target='_blank' color='info'>Acessar</Button>
+    </div>
+  </div>
 </BaseLayout>
+<style>
+  img#background-img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: absolute;
+    z-index: -10;
+    pointer-events: none;
+    filter: blur(3px);
+    opacity: 0.5;
+  }
+  #progress-bar-cert {
+    transition: width 0.5s linear;
+  }
+</style>

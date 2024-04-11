@@ -1,3 +1,7 @@
+:root {
+  --tw-border-opacity: 0.3 !important;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
