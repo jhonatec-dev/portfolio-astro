@@ -32,7 +32,7 @@ export default function NavBar() {
   }
 
   function getSVGClasses(path: string): string {
-    const base = " w-8 h-8 ";
+    const base = " w-7 h-7 ";
     if (isPathActive(path)) {
       return (
         base +
@@ -46,9 +46,14 @@ export default function NavBar() {
   }
 
   return (
-    <div className='flex px-2 sm:justify-center z-50 border-t-2 gap-0 sm:gap-2 w-full fixed bg-white dark:bg-stone-900 bottom-0 left-0 sm:relative sm:my-4'>
+    <div className='flex px-2 sm:justify-center z-50 border-t-2 gap-0 sm:gap-2 w-full fixed bg-white dark:bg-stone-900 bottom-0 left-0 sm:relative sm:mt-0 sm:mb-6'>
       {paths.map((path, index) => (
-        <a key={index} href={path.url} style={{ marginTop: -3 }} className="flex-grow">
+        <a
+          key={index}
+          href={path.url}
+          style={{ marginTop: -3 }}
+          className='flex-grow'
+        >
           <div className={getDivClasses(path.url)}>
             <svg
               className={getSVGClasses(path.url)}
