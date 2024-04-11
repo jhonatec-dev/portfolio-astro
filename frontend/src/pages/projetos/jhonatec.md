@@ -6,24 +6,24 @@ image:
   { url: /assets/images/projects/jhonatec-new-version.png, alt: Jhonatec Logo }
 techs:
   [
-    nextjs,
-    nodejs,
-    mongodb,
-    mongoose,
-    dayjs,
-    react-hook-forms,
-    jwt,
-    atlas,
-    vercel,
-    railway,
-    material-ui,
-    mercadopago,
-    webhook,
-    fullstack,
-    nodemailer,
-    typescript
+    NextJS,
+    NodeJS,
+    MongoDB,
+    Mongoose,
+    DayJS,
+    React-Hook-Forms,
+    JWT,
+    Atlas,
+    Vercel,
+    Railway,
+    Material-UI,
+    MercadoPago,
+    WebHook,
+    FullStack,
+    NodeMailer,
+    TypeScript,
   ]
-date: 2024-03-01
+date: 2024-03-10
 ---
 
 [Clique aqui para acessar](https://jhonatec.com/ "Jhonatec.com")

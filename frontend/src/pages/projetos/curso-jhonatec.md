@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Curso Jhonatec.com
 description: Aplicação player de música com ênfase no estilo emo
 image: { url: /assets/images/projects/curso-jhonatec.png, alt: Curso Jhonatec.com }
-techs: [wordpress, html, css, kallyas-theme, hospedagem, fullstack]
+techs: [Wordpress, HTML, CSS, Kallyas-Theme, Hospedagem, FullStack]
 
 date: 2021-05-01
 

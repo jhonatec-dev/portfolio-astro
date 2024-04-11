@@ -16,7 +16,7 @@ const idade = hoje.diff(nasc, "year");
 let projects = 0;
 let techs = 0;
 let tutorials = 0;
-const projectPosts = await Astro.glob("../../pages/projects/*.md");
+const projectPosts = await Astro.glob("../../pages/projetos/*.md");
 if (projectPosts) {
   projects = projectPosts.length;
   const techList = projectPosts.map(({ frontmatter }) => frontmatter.techs);

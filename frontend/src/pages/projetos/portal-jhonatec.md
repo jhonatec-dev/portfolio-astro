@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Antigo Jhonatec.com
 description: Meu antigo site de produtos e serviços
 image: { url: /assets/images/projects/jhonatec.png, alt: Jhonatec.com }
-techs: [wordpress, html, css, kallyas-theme, mercadopago, woocommerce, hospedagem, fullstack]
+techs: [Wordpress, HTML, CSS, Kallyas-Theme, MercadoPago, WooCommerce, Hospedagem, FullStack]
 
 date: 2021-04-01
 

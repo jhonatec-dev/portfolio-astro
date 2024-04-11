@@ -7,7 +7,7 @@ image:
     url: /assets/images/projects/norte-do-arquiteto.png,
     alt: Norte do Arquiteto,
   }
-techs: [nextjs, typescript, vercel, transitions, railway, material-ui, frontend]
+techs: [NextJS, TypeScript, Vercel, Transitions, Railway, Material-UI, Frontend]
 
 date: 2023-09-25
 ---

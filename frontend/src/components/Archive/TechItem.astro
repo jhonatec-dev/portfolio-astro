@@ -10,16 +10,16 @@ interface Props {
 const { tech, url, count } = Astro.props;
 ---
 
-<a href={url}>
+<a href={url} class=''>
   <div
-    class='relative flex items-center bg-cyan-400 hover:bg-cyan-500 group-hover:bg-cyan-500 dark:bg-cyan-500 dark:group-hover:bg-cyan-600 dark:hover:bg-cyan-600 rounded justify-between gap-2 overflow-hidden py-2 px-2'
+    class='h-full flex items-center justify-between bg-cyan-400 hover:bg-cyan-500 group-hover:bg-cyan-500 dark:bg-cyan-500 dark:group-hover:bg-cyan-600 dark:hover:bg-cyan-600 rounded gap-2 overflow-hidden py-2 px-2'
   >
     <img
-      src={`/assets/images/techs/${tech}.png`}
+      src={`/assets/images/techs/${tech.toLowerCase()}.png`}
       alt='logo'
-      class='aspect-square object-contain text-white text-xs absolute top-0 left-0 h-full p-2 drop-shadow'
+      class='aspect-square object-contain text-white text-xs p-2 drop-shadow-lg max-w-16'
     />
-    <div class='text-right w-full'>
+    <div class='text-right'>
       <Typo bold variant={tech.length > 10 ? "body2" : "body1"}>{tech}</Typo>
       <Typo><strong>{count}</strong> {count > 1 ? "Projetos" : "Projeto"}</Typo>
     </div>

@@ -3,8 +3,8 @@ layout: ../../layouts/ProjectLayout.astro
 title: JavaScriptation
 description: Aplicação player de música com ênfase no estilo emo
 image:
-  { url: /assets/images/projects/javascriptation.png, alt: JavaScriptation }
-techs: [javascript, css, animations, html, frontend]
+  { url: /assets/images/projects/JavaScriptation.png, alt: JavaScriptation }
+techs: [JavaScript, CSS, Animations, HTML, Frontend]
 
 date: 2023-01-25
 ---

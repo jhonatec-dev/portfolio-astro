@@ -6,7 +6,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Main from "@layouts/Main.astro";
 import dayjs from "dayjs";
 
-const projectPosts = await Astro.glob("../pages/projects/*.md");
+const projectPosts = await Astro.glob("../pages/projetos/*.md");
 if (projectPosts) {
   projectPosts.sort((a, b) => {
     return dayjs(a.frontmatter.date).isBefore(dayjs(b.frontmatter.date))

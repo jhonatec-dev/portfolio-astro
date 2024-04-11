@@ -5,6 +5,7 @@ import Header from "@components/Header/index.astro";
 import NavBar from "@components/NavBar/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Main from "@layouts/Main.astro";
+import dayjs from "dayjs";
 
 interface Projects {
   frontmatter: {
@@ -15,12 +16,13 @@ interface Projects {
       url: string;
       alt: string;
     };
+    date: string;
   };
   url: string;
 }
 export async function getStaticPaths() {
   const projectPosts = (await Astro.glob(
-    "../../pages/projects/*.md"
+    "../../pages/projetos/*.md"
   )) as Projects[];
   const uniqueTechs = [
     ...new Set(projectPosts.map((post) => post.frontmatter.techs).flat()),
@@ -36,9 +38,11 @@ export async function getStaticPaths() {
     });
   });
   return uniqueTechs.map((tech) => {
-    const filteredPosts = projectPosts.filter((post) =>
-      post.frontmatter.techs.includes(tech)
-    );
+    const filteredPosts = projectPosts
+      .filter((post) => post.frontmatter.techs.includes(tech))
+      .sort((a, b) =>
+        dayjs(a.frontmatter.date).isAfter(b.frontmatter.date) ? -1 : 1
+      );
     return {
       params: { tech },
       props: { posts: filteredPosts, count: techs[tech] },
@@ -61,7 +65,7 @@ const { posts, count } = Astro.props;
     <div
       class='my-4 rounded group bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600'
     >
-      <div class="w-60 mx-auto">
+      <div class='w-60 mx-auto'>
         <TechItem tech={tech} count={count} url='#' />
       </div>
     </div>
