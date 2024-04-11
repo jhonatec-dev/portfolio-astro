@@ -29,13 +29,28 @@ const { content, prev, next } = Astro.props;
 <script>
   let progress = 0;
   const step = 2;
+  let onMouseDown = false;
   const progressBar = document.getElementById("progress-bar-cert");
   progressBar?.setAttribute("style", `width: ${progress}%`);
+  const body = document.querySelector("body");
+  body?.addEventListener("mousedown", () => {
+    onMouseDown = true;
+  });
+  body?.addEventListener("touchstart", () => {
+    onMouseDown = true;
+  });
+
+  body?.addEventListener("mouseup", () => {
+    onMouseDown = false;
+  });
+  body?.addEventListener("touchend", () => {
+    onMouseDown = false;
+  });
 
   function updateProgressBar() {
     progress += step;
     progressBar?.setAttribute("style", `width: ${progress}%`);
-    console.log("PROGRESS ---->", progress);
+    // console.log("PROGRESS ---->", progress);
   }
 
   function NextCert() {
@@ -48,6 +63,7 @@ const { content, prev, next } = Astro.props;
     }
   }
   const interval = setInterval(() => {
+    if (onMouseDown) return;
     if (progress + step >= 100) {
       clearInterval(interval);
       setTimeout(() => {
@@ -90,7 +106,7 @@ const { content, prev, next } = Astro.props;
     <!-- Content -->
     <img
       src={content.image}
-      class='sm:max-w-2xl rounded-lg shadow dark:shadow-sm-light'
+      class='sm:max-w-2xl rounded-lg shadow dark:shadow-sm-light pointer-events-none'
     />
     <img src={content.image} id='background-img' />
     <!-- Next and Prev -->
