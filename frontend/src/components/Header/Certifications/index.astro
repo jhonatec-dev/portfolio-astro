@@ -27,7 +27,7 @@ interface Props {
 
 {
   certs && (
-    <div class='w-full overflow-x-scroll'>
+    <div class='w-full overflow-x-scroll overflow-y-clip'>
       <div class='flex gap-3 my-2 py-4 px-2 sm:gap-4 sm:p-1'>
         {certs.map((cert) => (
           <div class='relative container-avatar-video flex-shrink-0'>
