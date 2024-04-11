@@ -28,11 +28,12 @@ const { content, prev, next } = Astro.props;
 
 <script>
   let progress = 0;
+  const step = 2;
   const progressBar = document.getElementById("progress-bar-cert");
   progressBar?.setAttribute("style", `width: ${progress}%`);
 
   function updateProgressBar() {
-    progress += 5;
+    progress += step;
     progressBar?.setAttribute("style", `width: ${progress}%`);
     console.log("PROGRESS ---->", progress);
   }
@@ -47,7 +48,7 @@ const { content, prev, next } = Astro.props;
     }
   }
   const interval = setInterval(() => {
-    if (progress >= 95) {
+    if (progress + step >= 100) {
       clearInterval(interval);
       setTimeout(() => {
         NextCert();

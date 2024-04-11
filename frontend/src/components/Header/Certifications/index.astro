@@ -27,9 +27,9 @@ interface Props {
 
 {
   certs && (
-    <div class='flex gap-2 my-2 sm:mb-6 sm:mt-0'>
+    <div class='flex gap-3 my-2 py-4 px-2 overflow-y-auto overflow-x-hidden sm:mb-4 sm:mt-0 sm:gap-4 sm:p-1'>
       {certs.map((cert) => (
-        <div class='relative container-avatar-video'>
+        <div class='relative container-avatar-video flex-shrink-0'>
           <div
             class={`bg-gradient-to-r from-cyan-500 to-blue-500 transition-all rounded-full duration-500 surrond-avatar`}
           >
@@ -38,7 +38,7 @@ interface Props {
           <Tooltip text='Veja minha certificação' placement='right'>
             <Avatar
               src={cert.logo}
-              size={6}
+              size={5.5}
               href={`/certificados/${cert.title.toLowerCase().replace(/ /g, "-")}`}
             />
           </Tooltip>

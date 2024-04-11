@@ -9,7 +9,8 @@ interface Props {
     | "h6"
     | "body1"
     | "body2"
-    | "caption";
+    | "caption"
+    | "big";
   bold?: boolean;
   align?: "left" | "center" | "right";
   lessOpacity?: boolean;
@@ -66,6 +67,10 @@ if (variant) {
     case "caption":
       Title = "p";
       classes.push("text-xs");
+      break;
+    case "big":
+      Title = "p";
+      classes.push("text-lg");
       break;
     default:
       Title = "p";
