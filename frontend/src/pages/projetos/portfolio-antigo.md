@@ -13,7 +13,8 @@ techs:
     Material-UI,
     Frontend,
     TypeScript,
-    EmailJS
+    EmailJS,
+    Axios
   ]
 date: 2024-03-01
 ---

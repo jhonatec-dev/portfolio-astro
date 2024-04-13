@@ -14,6 +14,7 @@ techs:
     Frontend,
     TypeScript,
     TailWind,
+    Axios
   ]
 date: 2024-04-12
 ---

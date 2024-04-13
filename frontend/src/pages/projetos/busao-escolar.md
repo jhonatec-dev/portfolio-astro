@@ -3,7 +3,7 @@ layout: ../../layouts/ProjectLayout.astro
 title: Busão Escolar
 description: Aplicação de vagas em ônibus escolar
 image: { url: /assets/images/projects/busao-escolar.png, alt: Busão Escolar }
-techs: [NextJS, NodeJS, MongoDB,  Mongoose, DayJS, React-Hook-Forms, JWT, NodeMailer, Atlas, Vercel, Railway, Material-UI, FullStack, TypeScript]
+techs: [NextJS, NodeJS, MongoDB,  Mongoose, DayJS, React-Hook-Forms, JWT, NodeMailer, Atlas, Vercel, Railway, Material-UI, FullStack, TypeScript, Axios]
 
 date: 2023-12-25
 

@@ -22,7 +22,8 @@ techs:
     FullStack,
     NodeMailer,
     TypeScript,
-    Vitest
+    Vitest,
+    Axios
   ]
 date: 2024-03-10
 ---
