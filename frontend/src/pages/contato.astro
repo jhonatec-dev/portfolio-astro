@@ -1,18 +1,10 @@
 ---
 import Typo from "@components/Base/Typo.astro";
+import ContactForm from "@components/ContactForm";
 import Header from "@components/Header/index.astro";
 import NavBar from "@components/NavBar/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Main from "@layouts/Main.astro";
-
-// const projectPosts = await Astro.glob("../pages/projects/*.md");
-// if (projectPosts) {
-//   projectPosts.sort((a, b) => {
-//     return dayjs(a.frontmatter.date).isBefore(dayjs(b.frontmatter.date))
-//       ? -1
-//       : 1;
-//   });
-// }
 ---
 
 <BaseLayout
@@ -22,9 +14,17 @@ import Main from "@layouts/Main.astro";
   <Main>
     <Header />
     <NavBar client:only='react' />
-    <div class='max-w-sm my-0 mx-auto'>
-      <img src='/assets/icons/construction.svg' alt='Em construção' />
+    <div class='max-w-sm my-0 mx-auto flex flex-col gap-1'>
+      <!-- <img src='/assets/icons/construction.svg' alt='Em construção' /> -->
+      <Typo variant='h2' align='center'>Entre em contato 👨🏻‍💻</Typo>
+      <Typo variant='body1' align='center'
+        >Estou ansioso para ouvir sobre seu projeto!</Typo
+      >
+      <Typo variant='body1' align='center'
+        >Prometo que respondo rapidinho! 🚀</Typo
+      >
+      <ContactForm client:only='react' />
     </div>
-    <Typo variant='h2' align='center'>Em breve...</Typo>
+    <!-- <Typo variant='h2' align='center'>Em breve...</Typo> -->
   </Main>
 </BaseLayout>
