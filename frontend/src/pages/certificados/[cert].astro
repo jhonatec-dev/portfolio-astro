@@ -9,7 +9,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 export async function getStaticPaths() {
   return certs.map((cert, index) => {
     const title = cert.title.toLowerCase().replace(/ /g, "-");
-    console.log("logando o titlulo", title);
     const content = cert;
     return {
       params: { cert: title },

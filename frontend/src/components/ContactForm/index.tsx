@@ -26,11 +26,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: IFormInput) => {
     try {
-      console.log(data);
       setIsLoading(true);
-
-      console.log("API_URL", API_URL);
-      console.log("USER", USER);
 
       const request = {
         from: USER,
@@ -39,7 +35,6 @@ export default function ContactForm() {
         body: GenerateEmailBody(data),
         copy: true,
       };
-      console.log("request", request);
       const response = await axios.post(`${API_URL}/send`, request, {});
       setIsLoading(false);
       setIsSuccess(true);
