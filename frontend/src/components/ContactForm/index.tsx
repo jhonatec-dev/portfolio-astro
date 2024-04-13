@@ -59,11 +59,11 @@ export default function ContactForm() {
     "dark:bg-stone-600 dark:text-white dark:focus:ring-cyan-400",
   ];
 
-  const spanClasses = ["text-red-500", "text-xs", "-mt-1"];
+  const spanClasses = ["text-red-500", "text-xs", "mt-1"];
 
   const buttonClasses = [
     "bg-cyan-500",
-    "dark:bg-cyan-400",
+    "dark:bg-cyan-500",
     "text-white",
     "rounded",
     "py-2",
@@ -108,64 +108,80 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='flex flex-col gap-2 my-3 px-2'>
-        <p className='dark:text-white'>Nome</p>
-        <input
-          type='text'
-          autoComplete='name'
-          {...register("name", {
-            required: {
-              value: true,
-              message:
-                "Que tal me dizer qual seu nome pra eu poder te ajudar melhor? 😉",
-            },
-          })}
-          className={inputClasses.join(" ")}
-        />
-        {errors.name && (
-          <span className={spanClasses.join(" ")}>{errors.name.message}</span>
-        )}
+      <div className='flex flex-col gap-5 my-3 px-6'>
+        <div className='flex flex-col gap-1'>
+          <p className='dark:text-white'>😎 Nome</p>
+          <input
+            placeholder='Digite aqui'
+            type='text'
+            autoComplete='name'
+            {...register("name", {
+              required: {
+                value: true,
+                message:
+                  "Que tal me dizer qual seu nome pra eu poder te ajudar melhor? 😉",
+              },
+              minLength: {
+                value: 3,
+                message: "Seu nome é tão curto assim? 😅",
+              },
+            })}
+            className={inputClasses.join(" ")}
+          />
+          {errors.name && (
+            <span className={spanClasses.join(" ")}>{errors.name.message}</span>
+          )}
+        </div>
 
-        <p className='dark:text-white'>📧E-mail</p>
-        <input
-          type='email'
-          autoComplete='email'
-          {...register("email", {
-            required: {
-              value: true,
-              message:
-                "Que tal me dizer qual seu e-mail pra eu poder entrar em contato? 😉",
-            },
-            validate: {
-              email: (value) =>
-                validator.isEmail(value) ||
-                "Que tal me dizer um e-mail válido? 😉",
-            },
-          })}
-          className={inputClasses.join(" ")}
-        />
-        {errors.email && (
-          <span className={spanClasses.join(" ")}>{errors.email.message}</span>
-        )}
-
-        <p className='dark:text-white'>Mensagem</p>
-        <textarea
-          placeholder='Message'
-          autoComplete='message'
-          {...register("message", {
-            required: {
-              value: true,
-              message: "Que tal me dizer o que posso fazer por você? 😉",
-            },
-          })}
-          className={inputClasses.join(" ")}
-        />
-        {errors.message && (
-          <span className={spanClasses.join(" ")}>
-            {errors.message.message}
-          </span>
-        )}
-
+        <div className='flex flex-col gap-1'>
+          <p className='dark:text-white'>📧 E-mail</p>
+          <input
+            placeholder='Digite aqui'
+            type='email'
+            autoComplete='email'
+            {...register("email", {
+              required: {
+                value: true,
+                message:
+                  "Que tal me dizer qual seu e-mail pra eu poder entrar em contato? 😉",
+              },
+              validate: {
+                email: (value) =>
+                  validator.isEmail(value) ||
+                  "Que tal me dizer um e-mail válido? 😉",
+              },
+            })}
+            className={inputClasses.join(" ")}
+          />
+          {errors.email && (
+            <span className={spanClasses.join(" ")}>
+              {errors.email.message}
+            </span>
+          )}
+        </div>
+        <div className='flex flex-col gap-1'>
+          <p className='dark:text-white'>📄 Mensagem</p>
+          <textarea
+            placeholder='Digite aqui'
+            autoComplete='message'
+            {...register("message", {
+              required: {
+                value: true,
+                message: "Que tal me dizer o que posso fazer por você? 😉",
+              },
+              minLength: {
+                value: 10,
+                message: "Sua mensagem é tão curta assim? 😅",
+              },
+            })}
+            className={inputClasses.join(" ")}
+          />
+          {errors.message && (
+            <span className={spanClasses.join(" ")}>
+              {errors.message.message}
+            </span>
+          )}
+        </div>
         <button type='submit' className={buttonClasses.join(" ")}>
           Enviar
         </button>
