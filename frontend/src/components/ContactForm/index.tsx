@@ -1,12 +1,18 @@
+import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import validator from "validator";
+import GenerateEmailBody from "./GenerateBody";
 import Loading from "./Loading";
+
 interface IFormInput {
   name: string;
   email: string;
   message: string;
 }
+
+const API_URL = import.meta.env.PUBLIC_API_URL;
+const USER = import.meta.env.PUBLIC_USER;
 
 export default function ContactForm() {
   const {
@@ -18,16 +24,29 @@ export default function ContactForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const onSubmit = (data: IFormInput) => {
+  const onSubmit = async (data: IFormInput) => {
     try {
       console.log(data);
       setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        setIsSuccess(true);
-      }, 2000);
+
+      console.log("API_URL", API_URL);
+      console.log("USER", USER);
+
+      const request = {
+        from: USER,
+        to: [data.email],
+        subject: `Olá ${data.name}, recebi sua mensagem!`,
+        body: GenerateEmailBody(data),
+        copy: true,
+      };
+      console.log("request", request);
+      const response = await axios.post(`${API_URL}/send`, request, {});
+      setIsLoading(false);
+      setIsSuccess(true);
     } catch (error) {
-      console.error(error);
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data);
+      }
       setIsLoading(false);
       setIsSuccess(false);
       setIsError(true);
@@ -50,6 +69,7 @@ export default function ContactForm() {
     "py-2",
     "px-4",
     "hover:bg-cyan-600",
+    "dark:hover:bg-cyan-600",
     "transition",
     "duration-200",
     "ease-in-out",
@@ -58,7 +78,7 @@ export default function ContactForm() {
 
   if (isLoading) {
     return (
-      <div className='w-full flex items-center justify-center p-3'>
+      <div className='w-full flex items-center justify-center my-8'>
         <Loading />
       </div>
     );
@@ -81,19 +101,18 @@ export default function ContactForm() {
       <div className='w-full flex flex-col items-center justify-center'>
         <img src='/assets/icons/sorry.svg' alt='thanks' className='w-2/3' />
         <p className='dark:text-white'>Houve algum problema com nosso envio!</p>
-        <p className='dark:text-white'>
-          Tenta mais tarde por favor?! 🥹
-        </p>
+        <p className='dark:text-white'>Tenta mais tarde por favor?! 🥹</p>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='flex flex-col gap-2 my-3'>
+      <div className='flex flex-col gap-2 my-3 px-2'>
+        <p className='dark:text-white'>Nome</p>
         <input
           type='text'
-          placeholder='Nome'
+          autoComplete='name'
           {...register("name", {
             required: {
               value: true,
@@ -107,19 +126,20 @@ export default function ContactForm() {
           <span className={spanClasses.join(" ")}>{errors.name.message}</span>
         )}
 
+        <p className='dark:text-white'>📧E-mail</p>
         <input
           type='email'
-          placeholder='Email'
+          autoComplete='email'
           {...register("email", {
             required: {
               value: true,
               message:
-                "Que tal me dizer qual seu email pra eu poder entrar em contato? 😉",
+                "Que tal me dizer qual seu e-mail pra eu poder entrar em contato? 😉",
             },
             validate: {
               email: (value) =>
                 validator.isEmail(value) ||
-                "Que tal me dizer um email válido? 😉",
+                "Que tal me dizer um e-mail válido? 😉",
             },
           })}
           className={inputClasses.join(" ")}
@@ -128,8 +148,10 @@ export default function ContactForm() {
           <span className={spanClasses.join(" ")}>{errors.email.message}</span>
         )}
 
+        <p className='dark:text-white'>Mensagem</p>
         <textarea
           placeholder='Message'
+          autoComplete='message'
           {...register("message", {
             required: {
               value: true,
@@ -145,7 +167,7 @@ export default function ContactForm() {
         )}
 
         <button type='submit' className={buttonClasses.join(" ")}>
-          Submit
+          Enviar
         </button>
       </div>
     </form>

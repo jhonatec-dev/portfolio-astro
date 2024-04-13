@@ -13,7 +13,7 @@ techs:
     Material-UI,
     Frontend,
     TypeScript,
-    TailWind
+    TailWind,
   ]
 date: 2024-04-12
 ---
