@@ -16,7 +16,12 @@ interface Props {
 }
 
 // if (!Astro.props.faviconURL) Astro.props.faviconURL = "/favicon.svg";
-const { title, description, faviconURL="/favicon.svg", ogImageURL="/assets/images/og.png" } = Astro.props;
+const {
+  title,
+  description,
+  faviconURL = "/favicon.svg",
+  ogImageURL = "/assets/images/og.png",
+} = Astro.props;
 ---
 
 <script>
@@ -25,6 +30,10 @@ const { title, description, faviconURL="/favicon.svg", ogImageURL="/assets/image
   const themeMode = localStorage.getItem("theme-mode") ?? "light";
   document.getElementsByTagName("html")[0].className = themeMode; //dark
 </script>
+<script
+  async
+  src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1405685726186325'
+  crossorigin='anonymous'></script>
 <html lang='pt-br'>
   <head>
     <meta charset='UTF-8' />
