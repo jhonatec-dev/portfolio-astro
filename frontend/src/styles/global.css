@@ -33,7 +33,11 @@
 /* End Scroll Bar */
 
 ul {
-  list-style: disc;
+  @apply list-disc;
+}
+
+ol {
+  @apply list-decimal;
 }
 
 li {
@@ -77,6 +81,24 @@ h5 {
 
 h6 {
   font-size: 0.875rem;
+}
+
+code {
+  @apply font-mono bg-gray-200 p-1 rounded dark:bg-gray-600;
+}
+
+pre:has(code) {
+  @apply pt-10 px-2 bg-gray-200 dark:bg-gray-800 rounded break-words;
+}
+
+pre:has(code) code {
+  @apply bg-transparent !important;
+}
+
+blockquote {
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
 }
 
 /* ITEM ARCHIVE */
@@ -123,4 +145,5 @@ a:hover .above-img {
   scale: 1.05;
 }
 /* END AVATAR WITH STORIE */
+
 

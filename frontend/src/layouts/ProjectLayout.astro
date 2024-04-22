@@ -42,6 +42,46 @@ const { title, description, image, techs } = Astro.props.frontmatter;
     aTag.setAttribute("target", "_blank");
   });
 </script>
+<script>
+  // Recuperar blocos de código e adiciona botão de copiar
+  const codeBlocks = document.querySelectorAll("pre:has(code)");
+  codeBlocks.forEach((codeBlock) => {
+    const button = document.createElement("button");
+    const icon = document.createElement("img");
+    icon.src = "/assets/icons/copy.svg";
+    icon.alt = "Copy";
+    icon.className = "w-6 h-6 group-hover:animate-bounce group-hover:invert";
+    button.appendChild(icon);
+    const label = document.createElement("span");
+    label.innerText = "Copiado!";
+    label.className =
+      "hidden ml-2 transition duration-300 ease-in-out animate-pulse";
+    button.appendChild(label);
+    button.className =
+      "group flex items-center bg-gray-400 hover:bg-gray-600 text-white dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-white rounded-md px-2 py-1 absolute top-1 right-1 z-10 transition-all duration-300 ease-in-out";
+    button.style.cursor = "pointer";
+    button.addEventListener("click", () => {
+      label.classList.remove("hidden");
+      label.classList.add("animate-pulse");
+      icon.classList.remove("group-hover:animate-bounce");
+      icon.classList.remove("group-hover:invert");
+      icon.classList.add("animate-pulse");
+      icon.classList.add("invert");
+      navigator.clipboard.writeText(
+        codeBlock.querySelector("code")?.innerText ?? ""
+      );
+      setTimeout(() => {
+        label.classList.add("hidden");
+        label.classList.add("animate-pulse");
+        icon.classList.add("group-hover:animate-bounce");
+        icon.classList.add("group-hover:invert");
+        icon.classList.remove("invert");
+      }, 2500);
+    });
+    codeBlock.classList.add("relative");
+    codeBlock.appendChild(button);
+  });
+</script>
 <BaseLayout title={title} description={description} ogImageURL={image.url}>
   <Main>
     <Header />
@@ -72,10 +112,5 @@ const { title, description, image, techs } = Astro.props.frontmatter;
 <style is:inline>
   .post-container a {
     display: block;
-  }
-  blockquote {
-    border-left: 10px solid #ccc;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
   }
 </style>
