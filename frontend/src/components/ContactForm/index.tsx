@@ -35,7 +35,7 @@ export default function ContactForm() {
         body: GenerateEmailBody(data),
         copy: true,
       };
-      const response = await axios.post(`${API_URL}/send`, request, {});
+      await axios.post(`${API_URL}/send`, request, {});
       setIsLoading(false);
       setIsSuccess(true);
     } catch (error) {

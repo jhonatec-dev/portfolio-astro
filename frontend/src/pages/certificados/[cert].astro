@@ -1,6 +1,5 @@
 ---
 import Button from "@components/Base/Button.astro";
-import Fab from "@components/Base/Fab.astro";
 import IconButton from "@components/Base/IconButton.astro";
 import Typo from "@components/Base/Typo.astro";
 import { certs } from "@components/Header/Certifications/certs";
@@ -21,7 +20,6 @@ export async function getStaticPaths() {
   });
 }
 
-const { cert } = Astro.params;
 const { content, prev, next } = Astro.props;
 ---
 
