@@ -8,7 +8,7 @@ techs: [JavaScript, React, CSS, Animations, Frontend]
 date: 2023-03-01
 
 ---
-[Clique para acessar](https://solarsystem.jhonatec.dev/ "Solar System") [Repositório](https://github.com/jhonatec-dev/solar-system "GitHub")
+[Clique para acessar](https://solar.jhonatec.pro/ "Solar System") [Repositório](https://github.com/jhonatec-dev/solar-system "GitHub")
 
 #### Minha primeira aplicação em React
 
