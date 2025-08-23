@@ -9,7 +9,7 @@ techs: [JavaScript, CSS, Animations, HTML, Frontend]
 date: 2023-01-25
 ---
 
-[Clique para acessar](https://javascriptation.jhonatec.dev/ "JavaScriptation") [Repositório](https://github.com/jhonatec-dev/javascriptation "GitHub")
+[Clique para acessar](https://javascriptation.jhonatec.pro/ "JavaScriptation") [Repositório](https://github.com/jhonatec-dev/javascriptation "GitHub")
 
 #### Jogo estilo Google Dino comigo como personagem e trilha sonora de paródia (Californication)
 
