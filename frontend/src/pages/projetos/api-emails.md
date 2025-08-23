@@ -8,7 +8,7 @@ techs: [BackEnd, NodeJS, SwaggerUI, TypeScript, NodeMailer, Vitest, MongoDB, Mon
 date: 2024-04-11
 
 ---
-[Clique para acessar](https://mailer.jhonatec.dev/ "Mailer Jhonatec") [Repositório](https://github.com/jhonatec-dev/api-emails "GitHub")
+[Clique para acessar](https://mailer.jhonatec.pro/ "Mailer Jhonatec") [Repositório](https://github.com/jhonatec-dev/api-emails "GitHub")
 
 #### API desenvolvida para disparar emails com praticidade nas minhas aplicações FrontEnd
 
