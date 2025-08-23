@@ -8,7 +8,7 @@ techs: [NextJS, NodeJS, MongoDB,  Mongoose, DayJS, React-Hook-Forms, JWT, NodeMa
 date: 2023-12-25
 
 ---
-[Clique para acessar](https://busao.jhonatec.dev/ "Busão Escolar") [Repositório](https://github.com/jhonatec-dev/busao_escolar "GitHub")
+[Clique para acessar](https://busao.jhonatec.pro/ "Busão Escolar") [Repositório](https://github.com/jhonatec-dev/busao_escolar "GitHub")
 
 #### Esta aplicação permite que os alunos peçam vaga no ônibus escolar universitário
 
